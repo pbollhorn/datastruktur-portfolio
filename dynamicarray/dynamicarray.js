@@ -4,7 +4,7 @@ export default class DynamicArray {
   #staticArray;
   #size;
 
-  constructor(capacity = 3) {
+  constructor(capacity = 10) {
     this.#staticArray = new StaticArray(capacity);
     this.#size = 0;
   }
