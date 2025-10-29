@@ -1,13 +1,19 @@
-export class DynamicArray {
-  #capacity = 10;
-  #size = 0;
-  hest = 400;
+import StaticArray from "./StaticArray.js";
 
-  constructor() {
-    this.field = 5;
+export class DynamicArray {
+  #staticArray;
+  #size;
+
+  constructor(initialCapacity = 10) {
+    this.#staticArray = new StaticArray(initialCapacity);
+    this.#size = 0;
   }
 
-  hello() {
-    return "Hello from dynamic array";
+  size() {
+    return this.#size;
+  }
+
+  capacity() {
+    return this.#staticArray.length;
   }
 }
