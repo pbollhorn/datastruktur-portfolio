@@ -9,12 +9,12 @@ export default class DynamicArray {
     this.#size = 0;
   }
 
-  add(item) {
-    if (this.#size == this.capacity()) {
-      this.grow();
-    }
-    this.set(this.#size, item);
-    this.#size++;
+  size() {
+    return this.#size;
+  }
+
+  capacity() {
+    return this.#staticArray.length;
   }
 
   get(index) {
@@ -25,18 +25,24 @@ export default class DynamicArray {
   }
 
   set(index, item) {
-    // if (index >= this.#size) {
+    // if (index > this.#size) {
     //   throw new RangeError();
     // }
+    // if(index==this.#size){
+    //   this.grow();
+    //   this.#size++;
+    // }
+
     this.#staticArray.set(index, item);
   }
 
-  size() {
-    return this.#size;
-  }
 
-  capacity() {
-    return this.#staticArray.length;
+  add(item) {
+    if (this.#size == this.capacity()) {
+      this.grow();
+    }
+    this.set(this.#size, item);
+    this.#size++;
   }
 
   grow() {
