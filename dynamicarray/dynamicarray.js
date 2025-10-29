@@ -48,12 +48,10 @@ export default class DynamicArray {
   }
 
   insert(index, item) {
-    
     if (index > this.#size) {
       throw new RangeError();
     }
-    
-    
+
     if (this.#size == this.capacity()) {
       this.grow();
     }
@@ -68,6 +66,10 @@ export default class DynamicArray {
   }
 
   remove(index) {
+    if (index >= this.#size) {
+      throw new RangeError();
+    }
+
     for (let i = index; i < this.#size - 1; i++) {
       this.set(i, this.get(i + 1));
     }
