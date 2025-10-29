@@ -1,4 +1,4 @@
-import { DynamicArray } from "./dynamicarray.js";
+import DynamicArray from "./dynamicarray.js";
 
 let da = new DynamicArray();
 
