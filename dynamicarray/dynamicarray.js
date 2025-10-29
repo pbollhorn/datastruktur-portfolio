@@ -10,8 +10,6 @@ export default class DynamicArray {
   }
 
   add(item) {
-    // console.log("this.#size: " + this.#size);
-    // console.log("this.capacity(): " + this.capacity());
     if (this.#size == this.capacity()) {
       this.grow();
     }
@@ -43,7 +41,31 @@ export default class DynamicArray {
     }
   }
 
+  insert(index, item) {
+    if (this.#size == this.capacity()) {
+      this.grow();
+    }
+
+    for (let i = this.#size; i > index; i--) {
+      this.#staticArray.set(i, this.#staticArray.get(i - 1));
+    }
+
+    this.#staticArray.set(index, item);
+
+    size++;
+  }
+
   clear() {
     this.#size = 0;
+  }
+
+  print() {
+    console.log("--------------------");
+    console.log(`size: ${this.#size}`);
+    console.log(`capacity: ${this.capacity()}`);
+    for (let i = 0; i < this.#size; i++) {
+      console.log(`${i}: ${this.get(i)}`);
+    }
+    console.log("--------------------");
   }
 }
