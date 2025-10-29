@@ -24,3 +24,14 @@ da.remove(4);
 da.print();
 
 console.log(da.get(10));
+console.log(da.get(0));
+
+
+let db = new DynamicArray(1);
+db.print();
+db.add("bøffel");
+db.print();
+db.add("løve");
+db.print();
+db.add("søløve");
+db.print();
