@@ -29,4 +29,12 @@ export default class DynamicArray {
   capacity() {
     return this.#staticArray.length;
   }
+
+  grow() {
+    const oldStaticArray = this.#staticArray;
+    this.#staticArray = StaticArray(2 * capacity());
+    for (i = 0; i < size(); i++) {
+      this.#staticArray.set(i, oldStaticArray.get(i));
+    }
+  }
 }
