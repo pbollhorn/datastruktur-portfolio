@@ -52,7 +52,7 @@ export default class DynamicArray {
 
     this.#staticArray.set(index, item);
 
-    size++;
+    this.#size++;
   }
 
   clear() {
