@@ -20,3 +20,5 @@ da.print();
 
 da.insert(4, "øgle");
 da.print();
+da.remove(4);
+da.print();

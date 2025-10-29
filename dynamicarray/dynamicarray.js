@@ -47,19 +47,20 @@ export default class DynamicArray {
     }
 
     for (let i = this.#size; i > index; i--) {
-      this.#staticArray.set(i, this.#staticArray.get(i - 1));
+      this.set(i, this.get(i - 1));
     }
 
-    this.#staticArray.set(index, item);
+    this.set(index, item);
 
     this.#size++;
   }
 
-  // remove(index) {
-  //   for (let i = index; i < this.#size; i++) {
-  //     this.#staticArray.set(i, this.#staticArray.get(i+1));
-  //   }
-  // }
+  remove(index) {
+    for (let i = index; i < this.#size - 1; i++) {
+      this.set(i, this.get(i + 1));
+    }
+    this.#size--;
+  }
 
   clear() {
     this.#size = 0;
