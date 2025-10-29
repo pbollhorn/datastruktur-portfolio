@@ -4,12 +4,15 @@ export default class DynamicArray {
   #staticArray;
   #size;
 
-  constructor(capacity = 10) {
+  constructor(capacity = 3) {
     this.#staticArray = new StaticArray(capacity);
     this.#size = 0;
   }
 
   add(item) {
+    if (this.#size == this.capacity()) {
+      this.grow();
+    }
     this.#size++;
     this.#staticArray.set(this.#size - 1, item);
   }
@@ -32,8 +35,8 @@ export default class DynamicArray {
 
   grow() {
     const oldStaticArray = this.#staticArray;
-    this.#staticArray = StaticArray(2 * capacity());
-    for (i = 0; i < size(); i++) {
+    this.#staticArray = new StaticArray(2 * oldStaticArray.length);
+    for (i = 0; i < oldStaticArray.length; i++) {
       this.#staticArray.set(i, oldStaticArray.get(i));
     }
   }
