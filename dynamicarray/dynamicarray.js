@@ -1,4 +1,4 @@
-import StaticArray from "./StaticArray.js";
+import StaticArray from "../staticarray/StaticArray.js";
 
 export default class DynamicArray {
   #staticArray;
