@@ -13,7 +13,7 @@ export default class DynamicArray {
     if (this.#size == this.capacity()) {
       this.grow();
     }
-    this.#staticArray.set(this.#size, item);
+    this.set(this.#size, item);
     this.#size++;
   }
 
@@ -37,7 +37,7 @@ export default class DynamicArray {
     const oldStaticArray = this.#staticArray;
     this.#staticArray = new StaticArray(2 * oldStaticArray.length);
     for (let i = 0; i < oldStaticArray.length; i++) {
-      this.#staticArray.set(i, oldStaticArray.get(i));
+      this.set(i, oldStaticArray.get(i));
     }
   }
 
@@ -55,17 +55,21 @@ export default class DynamicArray {
     this.#size++;
   }
 
+  // remove(index) {
+  //   for (let i = index; i < this.#size; i++) {
+  //     this.#staticArray.set(i, this.#staticArray.get(i+1));
+  //   }
+  // }
+
   clear() {
     this.#size = 0;
   }
 
   print() {
-    console.log("--------------------");
-    console.log(`size: ${this.#size}`);
+    console.log(`\nsize: ${this.#size}`);
     console.log(`capacity: ${this.capacity()}`);
     for (let i = 0; i < this.#size; i++) {
       console.log(`${i}: ${this.get(i)}`);
     }
-    console.log("--------------------");
   }
 }
