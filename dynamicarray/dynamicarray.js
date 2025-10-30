@@ -37,6 +37,10 @@ export default class DynamicArray {
     //   this.#size++;
     // }
 
+    if (index >= this.#size) {
+      throw new RangeError();
+    }
+
     this.#staticArray.set(index, item);
   }
 
