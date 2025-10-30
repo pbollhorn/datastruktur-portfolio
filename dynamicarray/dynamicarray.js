@@ -90,10 +90,11 @@ export default class DynamicArray {
   }
 
   print() {
-    console.log(`\nsize: ${this.#size}`);
+    console.log(`size: ${this.#size}`);
     console.log(`capacity: ${this.capacity()}`);
     for (let i = 0; i < this.#size; i++) {
       console.log(`${i}: ${this.get(i)}`);
     }
+    console.log();
   }
 }
