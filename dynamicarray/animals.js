@@ -15,5 +15,5 @@ da.add("gråspurv");
 da.print();
 
 
-da.set(10,"aligator");
+da.insert(9,"aligator");
 da.print();

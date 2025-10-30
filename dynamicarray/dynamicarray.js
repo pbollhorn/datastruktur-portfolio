@@ -29,16 +29,8 @@ export default class DynamicArray {
   }
 
   set(index, item) {
-    // if (index > this.#size) {
-    //   throw new RangeError();
-    // }
-    // if(index==this.#size){
-    //   this.grow();
-    //   this.#size++;
-    // }
-
-    if (index >= this.#size) {
-      throw new RangeError();
+    if (index >= this.#size || index < 0) {
+      throw new RangeError("index out of bounds");
     }
 
     this.#staticArray.set(index, item);
@@ -48,8 +40,8 @@ export default class DynamicArray {
     if (this.#size == this.capacity()) {
       this.grow();
     }
-    this.set(this.#size, item);
     this.#size++;
+    this.set(this.#size - 1, item);
   }
 
   grow() {
@@ -73,9 +65,9 @@ export default class DynamicArray {
       this.set(i, this.get(i - 1));
     }
 
-    this.set(index, item);
-
     this.#size++;
+
+    this.set(index, item);
   }
 
   remove(index) {
