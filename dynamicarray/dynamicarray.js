@@ -62,17 +62,19 @@ export default class DynamicArray {
       throw new RangeError("index out of bounds");
     }
 
-    this.#size++;
-
     if (this.#size == this.capacity()) {
       this.grow();
     }
 
     for (let i = this.#size; i > index; i--) {
-      this.set(i, this.get(i - 1));
+      // this.set(i, this.get(i - 1));
+      this.#staticArray.set(i, this.#staticArray.get(i - 1));
     }
 
-    this.set(index, item);
+    // this.set(index, item);
+    this.#staticArray.set(index, item);
+
+    this.#size++;
   }
 
   remove(index) {
