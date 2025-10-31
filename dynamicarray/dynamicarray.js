@@ -26,14 +26,14 @@ export default class DynamicArray {
   }
 
   get(index) {
-    if (index >= this.#size || index < 0) {
+    if (index < 0 || index >= this.#size) {
       throw new RangeError("index out of bounds");
     }
     return this.#staticArray.get(index);
   }
 
   set(index, item) {
-    if (index >= this.#size || index < 0) {
+    if (index < 0 || index >= this.#size) {
       throw new RangeError("index out of bounds");
     }
 
@@ -58,15 +58,11 @@ export default class DynamicArray {
 
   // TODO: insert method seems to be the last one failing in test.js
   insert(index, item) {
-    if (index > this.#size || index < 0) {
+    if (index < 0 || index > this.#size) {
       throw new RangeError("index out of bounds");
     }
 
     this.#size++;
-
-    // if (index == this.capacity()) {
-    //   this.grow();
-    // }
 
     if (this.#size == this.capacity()) {
       this.grow();
@@ -80,7 +76,7 @@ export default class DynamicArray {
   }
 
   remove(index) {
-    if (index >= this.#size || index < 0) {
+    if (index < 0 || index >= this.#size) {
       throw new RangeError("index out of bounds");
     }
 
