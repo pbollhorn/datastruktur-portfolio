@@ -12,3 +12,7 @@ myList.add("hedder");
 myList.add("Kaj.");
 
 myList.printList();
+
+
+myList.add(117);
+myList.printList();

@@ -33,9 +33,12 @@ export default class SinglyLinkedList {
   }
 
   printList() {
+    let n = 0;
     for (let node = this.head; node != null; node = this.getNextNode(node)) {
-      console.log(node.data);
+      console.log(`Node ${n}: ${node.data}`);
+      n++;
     }
+    console.log(`size=${n}\n`);
   }
 }
 
