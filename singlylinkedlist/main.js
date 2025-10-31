@@ -4,4 +4,11 @@ const myList = new SinglyLinkedList();
 
 console.log(myList.head);
 
-myList.add("hej");
+myList.add("Hej");
+myList.add("med");
+myList.add("dig.");
+myList.add("Jeg");
+myList.add("hedder");
+myList.add("Kaj.");
+
+myList.printList();

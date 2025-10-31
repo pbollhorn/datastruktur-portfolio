@@ -24,18 +24,16 @@ export default class SinglyLinkedList {
     else lastNode.next = newNode;
   }
 
-  printList(){
-    
-    let node = 
-    
-    this.getNextNode(this.head)
+  printList() {
+    for (
+      let node = this.head;
+      node != null;
+      node = this.getNextNode(node)
+    ) {
+      console.log(node.data);
+    }
   }
-
-
 }
-
-
-
 
 // class Node {
 //   constructor(next) {
