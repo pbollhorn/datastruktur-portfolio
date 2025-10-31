@@ -61,7 +61,7 @@ export default class SinglyLinkedList {
   }
 
   get(index) {
-    const node = getNode(index);
+    const node = this.getNode(index);
     if (node == null) return undefined;
     return node.data;
   }

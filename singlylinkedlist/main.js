@@ -14,4 +14,14 @@ myList.add("Kaj.");
 myList.printList();
 
 
-console.log(myList.getNode(2).data);
+const myNode = myList.getNode(2);
+
+
+
+console.log(myNode.data);
+
+myList.removeNode(myNode);
+myList.printList();
+
+const myOtherNode = myList.get(0);
+console.log(myOtherNode.data);
