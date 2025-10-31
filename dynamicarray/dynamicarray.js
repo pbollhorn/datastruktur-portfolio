@@ -45,19 +45,18 @@ export default class DynamicArray {
       this.grow();
     }
     this.#size++;
-    this.set(this.#size - 1, item);
+    this.#staticArray.set(this.#size - 1, item);
   }
 
   grow() {
     const oldStaticArray = this.#staticArray;
     this.#staticArray = new StaticArray(2 * oldStaticArray.length);
     for (let i = 0; i < oldStaticArray.length; i++) {
-      // this.set(i, oldStaticArray.get(i));
       this.#staticArray.set(i, oldStaticArray.get(i));
     }
   }
 
-  // TODO: insert method seems to be the last one failing in test.js
+  
   insert(index, item) {
     if (index < 0 || index > this.#size) {
       throw new RangeError("index out of bounds");
