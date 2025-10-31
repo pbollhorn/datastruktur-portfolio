@@ -44,8 +44,8 @@ export default class DynamicArray {
     if (this.#size == this.capacity()) {
       this.grow();
     }
+    this.#staticArray.set(this.#size, item);
     this.#size++;
-    this.#staticArray.set(this.#size - 1, item);
   }
 
   grow() {
@@ -56,7 +56,6 @@ export default class DynamicArray {
     }
   }
 
-  
   insert(index, item) {
     if (index < 0 || index > this.#size) {
       throw new RangeError("index out of bounds");
