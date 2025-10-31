@@ -23,5 +23,4 @@ console.log(myNode.data);
 myList.removeNode(myNode);
 myList.printList();
 
-const myOtherNode = myList.get(0);
-console.log(myOtherNode.data);
+console.log(myList.get(0));
