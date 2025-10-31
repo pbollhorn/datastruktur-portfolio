@@ -3,6 +3,10 @@ export default class SinglyLinkedList {
     this.head = null;
   }
 
+  clear() {
+    this.head = null;
+  }
+
   getLastNode() {
     let node = this.head;
     if (node == null) return null;
