@@ -8,7 +8,6 @@ export default class DynamicArray {
     if (capacity < 1) {
       throw new Error("capacity must be >= 1");
     }
-
     this.#staticArray = new StaticArray(capacity);
     this.#size = 0;
   }
@@ -36,7 +35,6 @@ export default class DynamicArray {
     if (index < 0 || index >= this.#size) {
       throw new RangeError("index out of bounds");
     }
-
     this.#staticArray.set(index, item);
   }
 
@@ -60,17 +58,13 @@ export default class DynamicArray {
     if (index < 0 || index > this.#size) {
       throw new RangeError("index out of bounds");
     }
-
     if (this.#size == this.capacity()) {
       this.grow();
     }
-
     for (let i = this.#size; i > index; i--) {
       this.#staticArray.set(i, this.#staticArray.get(i - 1));
     }
-
     this.#staticArray.set(index, item);
-
     this.#size++;
   }
 
@@ -78,14 +72,13 @@ export default class DynamicArray {
     if (index < 0 || index >= this.#size) {
       throw new RangeError("index out of bounds");
     }
-
     for (let i = index; i < this.#size - 1; i++) {
       this.#staticArray.set(i, this.#staticArray.get(i + 1));
     }
     this.#size--;
   }
 
-  print() {
+  printList() {
     console.log(`size: ${this.#size}`);
     console.log(`capacity: ${this.capacity()}`);
     for (let i = 0; i < this.#size; i++) {
