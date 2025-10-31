@@ -46,6 +46,22 @@ export default class SinglyLinkedList {
     return node;
   }
 
+  getPreviousNode(node) {
+    let otherNode = this.getFirstNode();
+    while (otherNode != null && otherNode.next != node) {
+      otherNode = this.getNextNode(otherNode);
+    }
+    return otherNode;
+  }
+
+  removeNode(node) {}
+
+  get(index) {
+    const node = getNode(index);
+    if (node == null) return undefined;
+    return node.data;
+  }
+
   add(data) {
     let newNode = { next: null, data: data };
     const lastNode = this.getLastNode();
