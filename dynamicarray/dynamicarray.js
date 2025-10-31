@@ -81,7 +81,7 @@ export default class DynamicArray {
     }
 
     for (let i = index; i < this.#size - 1; i++) {
-      this.set(i, this.get(i + 1));
+      this.#staticArray.set(i, this.#staticArray.get(i + 1));
     }
     this.#size--;
   }
