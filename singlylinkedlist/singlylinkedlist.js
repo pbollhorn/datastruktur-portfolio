@@ -7,6 +7,15 @@ export default class SinglyLinkedList {
     this.head = null;
   }
 
+  getFirstNode() {
+    return this.head;
+  }
+
+  getNextNode(node) {
+    if (node == null || node.next == null) return null;
+    else return node.next;
+  }
+
   getLastNode() {
     let node = this.head;
     if (node == null) return null;
@@ -16,9 +25,25 @@ export default class SinglyLinkedList {
     return node;
   }
 
-  getNextNode(node) {
-    if (node == null || node.next == null) return null;
-    else return node.next;
+  // TODO: What to do in case of no nodes?
+  getFirst() {
+    if (this.head == null) return undefined;
+    return this.head.data;
+  }
+
+  getLast() {
+    const lastNode = this.getLastNode();
+    if (lastNode == null) return undefined;
+    return lastNode.data;
+  }
+
+  getNode(index) {
+    let i = 0;
+    let node = this.getFirstNode();
+    while (node != null && i != index) {
+      node = this.getNextNode(node);
+    }
+    return node;
   }
 
   add(data) {

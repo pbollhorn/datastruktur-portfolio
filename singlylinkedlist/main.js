@@ -12,7 +12,14 @@ myList.add("hedder");
 myList.add("Kaj.");
 
 myList.printList();
-
+console.log(myList.getFirst());
+console.log(myList.getLast());
 
 myList.add(117);
 myList.printList();
+
+
+myList.clear();
+myList.printList();
+console.log(myList.getFirst());
+console.log(myList.getLast());
