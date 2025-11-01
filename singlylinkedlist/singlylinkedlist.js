@@ -136,8 +136,3 @@ export default class SinglyLinkedList {
     console.log(`size=${n}\n`);
   }
 }
-
-// class Node {
-//   constructor(next) {
-//     this.next = next;
-//   }

@@ -16,13 +16,3 @@ myList.printList();
 console.log(myList.remove(0));
 
 myList.printList();
-
-
-// const firstNode = myList.getFirstNode();
-// console.log(firstNode.data);
-
-// console.log(myList.getPreviousNode(firstNode));
-
-
-// const theList = new SinglyLinkedList();
-// theList.printList();
