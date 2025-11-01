@@ -61,14 +61,20 @@ export default class SinglyLinkedList {
   }
 
   insert(index, data) {
-    if (index < 0) {
-      return;
-    } else if (index == 0) {
-      this.head = { next: this.head.next, data: data };
-    } else {
-      const node = this.getNode(index - 1);
-      node.next = {next: node.next, data: data};
-    }
+
+    const node = this.getNode(index);
+    this.insertBefore(node, data)
+
+
+
+    // if (index < 0) {
+    //   return;
+    // } else if (index == 0) {
+    //   this.head = { next: this.head.next, data: data };
+    // } else {
+    //   const node = this.getNode(index - 1);
+    //   node.next = {next: node.next, data: data};
+    // }
   }
 
   insertBefore(node, data) {
