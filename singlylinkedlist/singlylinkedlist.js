@@ -83,10 +83,11 @@ export default class SinglyLinkedList {
 
   removeNode(node) {
     const previousNode = this.getPreviousNode(node);
-    // if (previousNode == this.head) {
-
-    // }
-    previousNode.next = node.next;
+    if (previousNode == null) {
+      this.head = node.next;
+    } else {
+      previousNode.next = node.next;
+    }
   }
 
   get(index) {

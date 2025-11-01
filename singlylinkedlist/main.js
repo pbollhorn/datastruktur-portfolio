@@ -1,23 +1,23 @@
 import SinglyLinkedList from "./singlylinkedlist.js";
 
-// const myList = new SinglyLinkedList();
+const myList = new SinglyLinkedList();
 
-// console.log(myList.head);
+console.log(myList.head);
 
-// myList.add("Hej");
-// myList.add("med");
-// myList.add("dig.");
-// myList.add("Jeg");
-// myList.add("hedder");
-// myList.add("Kaj.");
+myList.add("Hej");
+myList.add("med");
+myList.add("dig.");
+myList.add("Jeg");
+myList.add("hedder");
+myList.add("Kaj.");
 
-// myList.printList();
+myList.printList();
 
-// const firstNode = myList.getFirstNode();
-// console.log(firstNode.data);
+const firstNode = myList.getFirstNode();
+console.log(firstNode.data);
 
-// console.log(myList.getPreviousNode(firstNode));
+console.log(myList.getPreviousNode(firstNode));
 
 
-const theList = new SinglyLinkedList();
-theList.printList();
+// const theList = new SinglyLinkedList();
+// theList.printList();
