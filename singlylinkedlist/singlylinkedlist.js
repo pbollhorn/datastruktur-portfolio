@@ -52,8 +52,7 @@ export default class SinglyLinkedList {
   }
 
   getNextNode(node) {
-    if (node == null || node.next == null) return null;
-    else return node.next;
+    return node.next;
   }
 
   getPreviousNode(node) {
