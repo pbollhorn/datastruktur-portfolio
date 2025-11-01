@@ -100,6 +100,12 @@ export default class SinglyLinkedList {
     return this.remove(0);
   }
 
+  removeLast() {
+    const lastNode = this.getLastNode();
+    this.removeNode(lastNode);
+    return lastNode.data;
+  }
+
   get(index) {
     const node = this.getNode(index);
     if (node == null) return undefined;

@@ -13,10 +13,15 @@ myList.add("Kaj.");
 
 myList.printList();
 
-const firstNode = myList.getFirstNode();
-console.log(firstNode.data);
+console.log(myList.remove(0));
 
-console.log(myList.getPreviousNode(firstNode));
+myList.printList();
+
+
+// const firstNode = myList.getFirstNode();
+// console.log(firstNode.data);
+
+// console.log(myList.getPreviousNode(firstNode));
 
 
 // const theList = new SinglyLinkedList();
