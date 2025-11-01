@@ -42,6 +42,17 @@ export default class SinglyLinkedList {
     node.data = data;
   }
 
+  insertBefore(node, data) {
+    const previousNode = this.getPreviousNode(node);
+    const newNode = { next: node, data: data };
+
+    if (previousNode == null) {
+      this.head = newNode;
+    } else {
+      previousNode.next = newNode;
+    }
+  }
+
   insertAfter(node, data) {
     const newNode = { next: node.next, data: data };
     node.next = newNode;

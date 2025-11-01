@@ -13,5 +13,9 @@ myList.add("Kaj.");
 
 myList.printList();
 
-myList.set(2,"dig! :D");
-myList.printList();
+const firstNode = myList.getFirstNode();
+console.log(firstNode.data);
+
+console.log(myList.getPreviousNode(firstNode));
+
+// myList.insertBefore(firstNode, "x");
