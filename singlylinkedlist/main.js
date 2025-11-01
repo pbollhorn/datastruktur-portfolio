@@ -4,7 +4,7 @@ console.log("Opret en tom liste");
 const myList = new SinglyLinkedList();
 myList.printList();
 
-console.log("Udskriv første og sidste værdi i listen")
+console.log("Første og sidste værdi i listen")
 console.log(myList.getFirst());
 console.log(myList.getLast());
 
@@ -17,6 +17,6 @@ myList.add("hedder");
 myList.add("Kaj.");
 myList.printList();
 
-console.log("Udskriv første og sidste værdi i listen")
+console.log("Første og sidste værdi i listen")
 console.log(myList.getFirst());
 console.log(myList.getLast());
