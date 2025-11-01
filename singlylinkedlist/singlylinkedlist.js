@@ -7,13 +7,18 @@ export default class SinglyLinkedList {
     this.head = null;
   }
 
-  getFirstNode() {
-    return this.head;
+  getNode(index) {
+    let i = 0;
+    let node = this.head;
+    while (node != null && i != index) {
+      node = this.getNextNode(node);
+      i++;
+    }
+    return node;
   }
 
-  getNextNode(node) {
-    if (node == null || node.next == null) return null;
-    else return node.next;
+  getFirstNode() {
+    return this.head;
   }
 
   getLastNode() {
@@ -23,6 +28,19 @@ export default class SinglyLinkedList {
       node = node.next;
     }
     return node;
+  }
+
+  getNextNode(node) {
+    if (node == null || node.next == null) return null;
+    else return node.next;
+  }
+
+  getPreviousNode(node) {
+    let otherNode = this.head;
+    while (otherNode != null && otherNode.next != node) {
+      otherNode = this.getNextNode(otherNode);
+    }
+    return otherNode;
   }
 
   // TODO: What to do in case of no nodes?
@@ -42,6 +60,17 @@ export default class SinglyLinkedList {
     node.data = data;
   }
 
+  insert(index, data) {
+    if (index < 0) {
+      return;
+    } else if (index == 0) {
+      this.head = { next: this.head.next, data: data };
+    } else {
+      const node = this.getNode(index - 1);
+      node.next = {next: node.next, data: data};
+    }
+  }
+
   insertBefore(node, data) {
     const previousNode = this.getPreviousNode(node);
     const newNode = { next: node, data: data };
@@ -56,24 +85,6 @@ export default class SinglyLinkedList {
   insertAfter(node, data) {
     const newNode = { next: node.next, data: data };
     node.next = newNode;
-  }
-
-  getNode(index) {
-    let i = 0;
-    let node = this.head;
-    while (node != null && i != index) {
-      node = this.getNextNode(node);
-      i++;
-    }
-    return node;
-  }
-
-  getPreviousNode(node) {
-    let otherNode = this.head;
-    while (otherNode != null && otherNode.next != node) {
-      otherNode = this.getNextNode(otherNode);
-    }
-    return otherNode;
   }
 
   // removeNode(node) {
