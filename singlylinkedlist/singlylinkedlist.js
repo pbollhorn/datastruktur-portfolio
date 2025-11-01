@@ -56,11 +56,11 @@ export default class SinglyLinkedList {
   }
 
   getPreviousNode(node) {
-    let otherNode = this.head;
-    while (otherNode != null && otherNode.next != node) {
-      otherNode = this.getNextNode(otherNode);
+    let _node = this.head;
+    while (_node != null && _node.next != node) {
+      _node = this.getNextNode(_node);
     }
-    return otherNode;
+    return _node;
   }
 
   removeNode(node) {
@@ -85,7 +85,7 @@ export default class SinglyLinkedList {
 
   getLast() {
     const lastNode = this.getLastNode();
-    // if (lastNode == null) return undefined;
+    if (lastNode == null) return undefined;
     return lastNode.data;
   }
 
@@ -109,7 +109,6 @@ export default class SinglyLinkedList {
   insertBefore(node, data) {
     const previousNode = this.getPreviousNode(node);
     const newNode = { next: node, data: data };
-
     if (previousNode == null) {
       this.head = newNode;
     } else {
