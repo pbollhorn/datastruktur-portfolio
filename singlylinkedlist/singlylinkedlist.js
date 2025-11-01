@@ -63,7 +63,21 @@ export default class SinglyLinkedList {
     return otherNode;
   }
 
-  // TODO: What to do in case of no nodes?
+  removeNode(node) {
+    const previousNode = this.getPreviousNode(node);
+    if (previousNode == null) {
+      this.head = node.next;
+    } else {
+      previousNode.next = node.next;
+    }
+  }
+
+  get(index) {
+    const node = this.getNode(index);
+    if (node == null) return undefined;
+    return node.data;
+  }
+
   getFirst() {
     if (this.head == null) return undefined;
     return this.head.data;
@@ -71,13 +85,20 @@ export default class SinglyLinkedList {
 
   getLast() {
     const lastNode = this.getLastNode();
-    if (lastNode == null) return undefined;
+    // if (lastNode == null) return undefined;
     return lastNode.data;
   }
 
   set(index, data) {
     const node = this.getNode(index);
     node.data = data;
+  }
+
+  add(data) {
+    let newNode = { next: null, data: data };
+    const lastNode = this.getLastNode();
+    if (lastNode == null) this.head = newNode;
+    else lastNode.next = newNode;
   }
 
   insert(index, data) {
@@ -101,15 +122,6 @@ export default class SinglyLinkedList {
     node.next = newNode;
   }
 
-  removeNode(node) {
-    const previousNode = this.getPreviousNode(node);
-    if (previousNode == null) {
-      this.head = node.next;
-    } else {
-      previousNode.next = node.next;
-    }
-  }
-
   remove(index) {
     const node = this.getNode(index);
     this.removeNode(node);
@@ -124,18 +136,5 @@ export default class SinglyLinkedList {
     const lastNode = this.getLastNode();
     this.removeNode(lastNode);
     return lastNode.data;
-  }
-
-  get(index) {
-    const node = this.getNode(index);
-    if (node == null) return undefined;
-    return node.data;
-  }
-
-  add(data) {
-    let newNode = { next: null, data: data };
-    const lastNode = this.getLastNode();
-    if (lastNode == null) this.head = newNode;
-    else lastNode.next = newNode;
   }
 }
