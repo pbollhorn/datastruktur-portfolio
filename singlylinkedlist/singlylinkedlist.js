@@ -61,20 +61,8 @@ export default class SinglyLinkedList {
   }
 
   insert(index, data) {
-
     const node = this.getNode(index);
-    this.insertBefore(node, data)
-
-
-
-    // if (index < 0) {
-    //   return;
-    // } else if (index == 0) {
-    //   this.head = { next: this.head.next, data: data };
-    // } else {
-    //   const node = this.getNode(index - 1);
-    //   node.next = {next: node.next, data: data};
-    // }
+    this.insertBefore(node, data);
   }
 
   insertBefore(node, data) {
@@ -93,16 +81,13 @@ export default class SinglyLinkedList {
     node.next = newNode;
   }
 
-  // removeNode(node) {
-  //   const previousNode = this.getPreviousNode(node);
-  //   if (previousNode == this.head) {
+  removeNode(node) {
+    const previousNode = this.getPreviousNode(node);
+    // if (previousNode == this.head) {
 
-  //   }
-
-  //   if (previousNode != null) {
-  //     previousNode.next = node.next;
-  //   }
-  // }
+    // }
+    previousNode.next = node.next;
+  }
 
   get(index) {
     const node = this.getNode(index);
