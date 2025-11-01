@@ -7,6 +7,27 @@ export default class SinglyLinkedList {
     this.head = null;
   }
 
+  size() {
+    let i = 0;
+    let node = this.head;
+    while (node != null) {
+      i++;
+      node = this.getNextNode(node);
+    }
+    return i;
+  }
+
+  printList() {
+    let i = 0;
+    let node = this.head;
+    while (node != null) {
+      console.log(`Node ${i}: ${node.data}`);
+      i++;
+      node = this.getNextNode(node);
+    }
+    console.log(`size=${i}\n`);
+  }
+
   getNode(index) {
     let i = 0;
     let node = this.head;
@@ -117,22 +138,5 @@ export default class SinglyLinkedList {
     const lastNode = this.getLastNode();
     if (lastNode == null) this.head = newNode;
     else lastNode.next = newNode;
-  }
-
-  size() {
-    let n = 0;
-    for (let node = this.head; node != null; node = this.getNextNode(node)) {
-      n++;
-    }
-    return n;
-  }
-
-  printList() {
-    let n = 0;
-    for (let node = this.head; node != null; node = this.getNextNode(node)) {
-      console.log(`Node ${n}: ${node.data}`);
-      n++;
-    }
-    console.log(`size=${n}\n`);
   }
 }
