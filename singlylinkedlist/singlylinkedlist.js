@@ -31,9 +31,9 @@ export default class SinglyLinkedList {
   getNode(index) {
     let i = 0;
     let node = this.head;
-    while (node != null && i != index) {
-      node = this.getNextNode(node);
+    while (i != index && node != null) {
       i++;
+      node = this.getNextNode(node);
     }
     return node;
   }
