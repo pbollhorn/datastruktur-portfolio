@@ -13,14 +13,5 @@ myList.add("Kaj.");
 
 myList.printList();
 
-
-const myNode = myList.getNode(2);
-
-
-
-console.log(myNode.data);
-
-myList.removeNode(myNode);
+myList.set(2,"dig! :D");
 myList.printList();
-
-console.log(myList.get(0));
