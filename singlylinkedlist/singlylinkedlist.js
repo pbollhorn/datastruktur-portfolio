@@ -90,6 +90,16 @@ export default class SinglyLinkedList {
     }
   }
 
+  remove(index) {
+    const node = this.getNode(index);
+    this.removeNode(node);
+    return node.data;
+  }
+
+  removeFirst() {
+    return this.remove(0);
+  }
+
   get(index) {
     const node = this.getNode(index);
     if (node == null) return undefined;
