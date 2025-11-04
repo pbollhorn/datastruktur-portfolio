@@ -4,6 +4,15 @@ export default class DoublyLinkedList {
     this.tail = null;
   }
 
+  // Modern iterator definition (2025 style) which yields the nodes
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node != null) {
+      yield node;
+      node = node.next;
+    }
+  }
+
   hardCodeDataIntoList() {
     const Node0 = new Node("Hej", null, null);
     const Node1 = new Node("med", null, null);
@@ -25,42 +34,45 @@ export default class DoublyLinkedList {
     Node5.prev = Node4;
   }
 
-  // Modern iterator definition (2025 style) which yields the nodes
-  *[Symbol.iterator]() {
-    let node = this.head;
-    while (node != null) {
-      yield node;
-      node = node.next;
-    }
-
-    // for (let i = this.start; i <= this.end; i++) {
-    //   yield i;
-    // }
-  }
-
   getNextNode(node) {
     return node.next;
   }
 
   getNode(index) {
     let i = 0;
-    let node = this.head;
-    while (i != index && node != null) {
+    for (const node of this) {
+      if (i === index) return node;
       i++;
-      node = this.getNextNode(node);
     }
-    return node;
+  }
+
+  getFirstNode() {
+    return this.head;
+  }
+
+  getLastNode() {
+    return this.tail;
+  }
+
+  get(index) {
+    return this.getNode(index).data;
   }
 
   printList() {
     let i = 0;
-    let node = this.head;
-    while (node != null) {
+    for (const node of this) {
       console.log(`Node ${i}: ${node.data}`);
       i++;
-      node = node.next;
     }
     console.log(`size=${i}\n`);
+  }
+
+  size() {
+    let i = 0;
+    for (const node of this) {
+      i++;
+    }
+    return i;
   }
 }
 
