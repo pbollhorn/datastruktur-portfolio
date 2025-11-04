@@ -25,6 +25,33 @@ export default class DoublyLinkedList {
     Node5.prev = Node4;
   }
 
+  // Modern iterator definition (2025 style) which yields the nodes
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node != null) {
+      yield node;
+      node = node.next;
+    }
+
+    // for (let i = this.start; i <= this.end; i++) {
+    //   yield i;
+    // }
+  }
+
+  getNextNode(node) {
+    return node.next;
+  }
+
+  getNode(index) {
+    let i = 0;
+    let node = this.head;
+    while (i != index && node != null) {
+      i++;
+      node = this.getNextNode(node);
+    }
+    return node;
+  }
+
   printList() {
     let i = 0;
     let node = this.head;
