@@ -1,8 +1,8 @@
 import DoublyLinkedList from "./doublylinkedlist.js";
 
-console.log("Opret en tom liste, og put noget data ind");
+console.log("Opret en tom liste");
 const myList = new DoublyLinkedList();
-myList.hardCodeHarder();
+// myList.hardCodeHarder();
 myList.printList();
 
 console.log("Put hardcoded data ind i listen");
