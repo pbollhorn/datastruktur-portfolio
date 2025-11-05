@@ -6,16 +6,14 @@ myList.printList();
 
 console.log("Put data ind i listen");
 myList.addFirst("Hej");
-// myList.addLast("med");
-// myList.addLast("dig.");
-// myList.addLast("Jeg");
-// myList.addLast("hedder");
-// myList.addLast("Kaj.");
-myList.insert(1, "Mickey Mouse");
+myList.addLast("med");
+myList.addLast("dig.");
+myList.addLast("Jeg");
+myList.addLast("hedder");
+myList.addLast("Kaj.");
 myList.printList();
 
-const firstNode = myList.getFirstNode();
-myList.insertBeforeNode(firstNode, "Anders And");
+console.log(myList.removeFirst());
 myList.printList();
 
 // console.log(myList.get(5));
