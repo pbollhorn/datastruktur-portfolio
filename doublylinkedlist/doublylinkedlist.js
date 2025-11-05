@@ -13,6 +13,19 @@ export default class DoublyLinkedList {
     }
   }
 
+  size() {
+    let i = 0;
+    for (const node of this) {
+      i++;
+    }
+    return i;
+  }
+
+  clear() {
+    this.head = null;
+    this.tail = null;
+  }
+
   addLast(data) {
     const lastNode = this.getLastNode();
     const newNode = { data: data, prev: lastNode, next: null };
@@ -84,11 +97,8 @@ export default class DoublyLinkedList {
     console.log(`size=${i}\n`);
   }
 
-  size() {
-    let i = 0;
-    for (const node of this) {
-      i++;
-    }
-    return i;
+  set(index, data) {
+    const node = this.getNode(index);
+    node.data = data;
   }
 }

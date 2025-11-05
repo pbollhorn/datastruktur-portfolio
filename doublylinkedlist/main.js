@@ -8,6 +8,7 @@ console.log("Put data ind i listen");
 myList.addFirst("Hej");
 myList.addLast("med");
 myList.addLast("dig.");
+myList.clear();
 myList.addLast("Jeg");
 myList.addLast("hedder");
 myList.addLast("Kaj.");
