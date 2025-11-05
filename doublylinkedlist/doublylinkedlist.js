@@ -122,9 +122,17 @@ export default class DoublyLinkedList {
     node.next = newNode;
   }
 
-  // TODO: Fix this method
+  // TODO: Cleanup this method
   insert(index, data) {
-    const node = this.getNode(index);
+    let node = this.getNode(index);
+    if (node === undefined) {
+      node = this.getNode(index - 1);
+      const newNode = { data: data, prev: node, next: null };
+      node.next = newNode;
+      this.tail = newNode;
+      return;
+    }
+
     const newNode = { data: data, prev: node.prev, next: node };
     if (node.prev !== null) {
       node.prev.next = newNode;

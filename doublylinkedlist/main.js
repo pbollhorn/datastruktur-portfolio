@@ -6,11 +6,12 @@ myList.printList();
 
 console.log("Put data ind i listen");
 myList.addFirst("Hej");
-myList.addLast("med");
-myList.addLast("dig.");
-myList.addLast("Jeg");
-myList.addLast("hedder");
-myList.addLast("Kaj.");
+// myList.addLast("med");
+// myList.addLast("dig.");
+// myList.addLast("Jeg");
+// myList.addLast("hedder");
+// myList.addLast("Kaj.");
+myList.insert(1, "Mickey Mouse");
 myList.printList();
 
 const firstNode = myList.getFirstNode();
