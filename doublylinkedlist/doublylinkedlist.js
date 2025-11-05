@@ -61,6 +61,16 @@ export default class DoublyLinkedList {
     return this.tail;
   }
 
+  getFirst() {
+    const firstNode = this.getFirstNode();
+    return firstNode.data;
+  }
+
+  getLast() {
+    const lastNode = this.getLastNode();
+    return lastNode.data;
+  }
+
   get(index) {
     return this.getNode(index).data;
   }
