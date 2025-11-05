@@ -7,6 +7,7 @@ myList.printList();
 
 console.log("Put hardcoded data ind i listen");
 myList.hardCodeDataIntoList();
+myList.addFirst("Fresh first node");
 myList.printList();
 // console.log(myList.get(5));
 

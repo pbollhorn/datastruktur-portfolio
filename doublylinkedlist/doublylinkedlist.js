@@ -45,25 +45,25 @@ export default class DoublyLinkedList {
     const lastNode = this.getLastNode();
     const newNode = new Node(data, lastNode, null);
 
-    if (lastNode === null) {
+    if (lastNode !== null) {
+      lastNode.next = newNode;
+      this.tail = newNode;
+    } else {
       this.head = newNode;
       this.tail = newNode;
-      return;
     }
+  }
 
-    lastNode.next = newNode;
-    this.tail = newNode;
-
-    // if (this.tail === null) {
-    //   this.tail = newNode;
-    //   this.head = newNode;
-    // } else {
-
-    // }
-
-    // if (this.head === null) {
-    //   this.head = newNode;
-    // }
+  addFirst(data) {
+    const firstNode = this.getFirstNode();
+    const newNode = new Node(data, null, firstNode);
+    if (firstNode !== null) {
+      firstNode.prev = newNode;
+      this.head = newNode;
+    } else {
+      this.head = newNode;
+      this.tail = newNode;
+    }
   }
 
   getNextNode(node) {
