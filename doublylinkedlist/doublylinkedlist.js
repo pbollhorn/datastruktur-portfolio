@@ -14,6 +14,13 @@ export default class DoublyLinkedList {
   }
 
   hardCodeDataIntoList() {
+    this.addLast("I");
+    this.addLast("dag");
+    this.addLast("er");
+    this.addLast("første");
+  }
+
+  hardCodeHarder() {
     const Node0 = new Node("Hej", null, null);
     const Node1 = new Node("med", null, null);
     const Node2 = new Node("dig.", null, null);
@@ -35,13 +42,28 @@ export default class DoublyLinkedList {
   }
 
   addLast(data) {
-    const lastNode = this.getLastNode();
-    newNode = new Node(data, lastNode, null);
+    const newNode = new Node(data, this.tail, null);
+    this.tail.next = newNode;
     this.tail = newNode;
+  
+    // if (this.tail === null) {
+    //   this.tail = newNode;
+    //   this.head = newNode;
+    // } else {
+
+    // }
+
+    // if (this.head === null) {
+    //   this.head = newNode;
+    // }
   }
 
   getNextNode(node) {
     return node.next;
+  }
+
+  getPreviousNode(node) {
+    return node.prev;
   }
 
   getNode(index) {
