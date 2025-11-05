@@ -141,4 +141,12 @@ export default class DoublyLinkedList {
     }
     node.prev = newNode;
   }
+
+  // TODO: fix for first node and last node
+  removeNode(node) {
+    const prevNode = node.prev;
+    const nextNode = node.next;
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
+  }
 }
