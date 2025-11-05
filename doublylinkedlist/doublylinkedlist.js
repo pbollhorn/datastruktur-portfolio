@@ -34,6 +34,12 @@ export default class DoublyLinkedList {
     Node5.prev = Node4;
   }
 
+  addLast(data) {
+    const lastNode = this.getLastNode();
+    newNode = new Node(data, lastNode, null);
+    this.tail = newNode;
+  }
+
   getNextNode(node) {
     return node.next;
   }
