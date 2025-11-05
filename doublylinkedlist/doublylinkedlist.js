@@ -13,38 +13,9 @@ export default class DoublyLinkedList {
     }
   }
 
-  hardCodeDataIntoList() {
-    this.addLast("I");
-    this.addLast("dag");
-    this.addLast("er");
-    this.addLast("første");
-  }
-
-  hardCodeHarder() {
-    const Node0 = new Node("Hej", null, null);
-    const Node1 = new Node("med", null, null);
-    const Node2 = new Node("dig.", null, null);
-    const Node3 = new Node("Jeg", null, null);
-    const Node4 = new Node("hedder", null, null);
-    const Node5 = new Node("Kaj.", null, null);
-    this.head = Node0;
-    this.tail = Node5;
-    Node0.next = Node1;
-    Node1.prev = Node0;
-    Node1.next = Node2;
-    Node2.prev = Node1;
-    Node2.next = Node3;
-    Node3.prev = Node2;
-    Node3.next = Node4;
-    Node4.prev = Node3;
-    Node4.next = Node5;
-    Node5.prev = Node4;
-  }
-
   addLast(data) {
     const lastNode = this.getLastNode();
     const newNode = new Node(data, lastNode, null);
-
     if (lastNode !== null) {
       lastNode.next = newNode;
       this.tail = newNode;

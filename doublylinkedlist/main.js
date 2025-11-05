@@ -2,13 +2,17 @@ import DoublyLinkedList from "./doublylinkedlist.js";
 
 console.log("Opret en tom liste");
 const myList = new DoublyLinkedList();
-// myList.hardCodeHarder();
 myList.printList();
 
-console.log("Put hardcoded data ind i listen");
-myList.hardCodeDataIntoList();
-myList.addFirst("Fresh first node");
+console.log("Put data ind i listen");
+myList.addFirst("Hej");
+myList.addLast("med");
+myList.addLast("dig.");
+myList.addLast("Jeg");
+myList.addLast("hedder");
+myList.addLast("Kaj.");
 myList.printList();
+
 // console.log(myList.get(5));
 
 // // Using the iterator in a `for...of` loop
