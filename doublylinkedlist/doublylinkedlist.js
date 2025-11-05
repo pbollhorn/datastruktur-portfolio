@@ -42,8 +42,9 @@ export default class DoublyLinkedList {
   }
 
   addLast(data) {
-    const newNode = new Node(data, this.tail, null);
-    this.tail.next = newNode;
+    const lastNode = this.getLastNode();
+    const newNode = new Node(data, lastNode, null);
+    lastNode.next = newNode;
     this.tail = newNode;
   
     // if (this.tail === null) {
