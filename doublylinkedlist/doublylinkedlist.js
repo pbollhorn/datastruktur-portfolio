@@ -15,7 +15,6 @@ export default class DoublyLinkedList {
 
   addLast(data) {
     const lastNode = this.getLastNode();
-    // const newNode = new Node(data, lastNode, null);
     const newNode = { data: data, prev: lastNode, next: null };
     if (lastNode !== null) {
       lastNode.next = newNode;
@@ -28,7 +27,6 @@ export default class DoublyLinkedList {
 
   addFirst(data) {
     const firstNode = this.getFirstNode();
-    // const newNode = new Node(data, null, firstNode);
     const newNode = { data: data, prev: null, next: firstNode };
     if (firstNode !== null) {
       firstNode.prev = newNode;
@@ -92,14 +90,5 @@ export default class DoublyLinkedList {
       i++;
     }
     return i;
-  }
-}
-
-// Helper class
-class Node {
-  constructor(data, prev, next) {
-    this.data = data;
-    this.prev = prev;
-    this.next = next;
   }
 }
