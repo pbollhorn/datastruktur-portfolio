@@ -101,4 +101,15 @@ export default class DoublyLinkedList {
     const node = this.getNode(index);
     node.data = data;
   }
+
+  insertBeforeNode(node, data) {
+    const newNode = { data: data, prev: node.prev, next: node };
+    if (node.prev !== null) {
+      node.prev.next = newNode;
+      node.prev = newNode;
+    } else {
+      this.head = newNode;
+      node.prev = newNode;
+    }
+  }
 }
