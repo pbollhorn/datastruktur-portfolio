@@ -169,7 +169,16 @@ export default class DoublyLinkedList {
 
   remove(index) {
     const node = this.getNode(index);
-    node.prev.next = node.next;
-    node.next.prev = node.prev;
+    if (node.prev !== null) {
+      node.prev.next = node.next;
+    } else {
+      this.head = node.next;
+    }
+
+    if (node.next !== null) {
+      node.next.prev = node.prev;
+    } else {
+      this.tail = node.prev;
+    }
   }
 }
