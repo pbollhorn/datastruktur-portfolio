@@ -25,7 +25,10 @@ export default class Grid {
     for (let row = 0; row < this.#rows; row++) {
       for (let col = 0; col < this.#cols; col++) {
         const cell = String(this.get({ row, col }));
-        output += `${cell.slice(0, cellWidth).padEnd(cellWidth, " ")} `;
+        const cellWithFixedWidth = cell
+          .slice(0, cellWidth)
+          .padEnd(cellWidth, " ");
+        output += `${cellWithFixedWidth} `;
       }
       output += "\n";
     }
