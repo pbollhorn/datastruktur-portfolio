@@ -152,7 +152,6 @@ export default class DoublyLinkedList {
     else this.tail = prevNode;
   }
 
-  // TODO: make this method work
   removeFirst() {
     const firstNode = this.getFirstNode();
     if (firstNode.next !== null) {
@@ -165,6 +164,18 @@ export default class DoublyLinkedList {
       this.tail = null;
     }
     return firstNode.data;
+  }
+
+  removeLast() {
+    const lastNode = this.getLastNode();
+    if (lastNode.prev !== null) {
+      lastNode.prev.next = null;
+      this.tail = lastNode.prev;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+    return lastNode.data;
   }
 
   remove(index) {
