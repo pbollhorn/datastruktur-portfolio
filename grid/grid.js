@@ -24,7 +24,8 @@ export default class Grid {
     let output = "";
     for (let row = 0; row < this.#rows; row++) {
       for (let col = 0; col < this.#cols; col++) {
-        const value = this.get({ row, col });
+        let value = String(this.get({ row, col }));
+        value = value.slice(0, fixedWidth).padEnd(fixedWidth, " ");
         output += value + " ";
       }
       output += "\n";
