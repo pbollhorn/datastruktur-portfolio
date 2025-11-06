@@ -166,4 +166,10 @@ export default class DoublyLinkedList {
     }
     return firstNode.data;
   }
+
+  remove(index) {
+    const node = this.getNode(index);
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+  }
 }
