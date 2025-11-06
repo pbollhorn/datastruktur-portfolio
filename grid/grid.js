@@ -20,6 +20,17 @@ export default class Grid {
     }
   }
 
+  printGrid(fixedWidth = 3) {
+    let output = "";
+
+    for (let row = 0; row < this.#rows; row++) {
+      for (let col = 0; col < this.#cols; col++) {
+        const value = this.get({ row, col });
+        console.log(value);
+      }
+    }
+  }
+
   get({ row, col }) {
     const index = row * this.#cols + col;
     return this.#array[index];
