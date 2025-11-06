@@ -155,7 +155,7 @@ export default class DoublyLinkedList {
   // TODO: make this method work
   removeFirst() {
     const firstNode = this.getFirstNode();
-    firstNode.next.prev = this.head;
+    if (firstNode.next !== null) firstNode.next.prev = null;
     this.head = firstNode.next;
     return firstNode.data;
   }
