@@ -20,13 +20,12 @@ export default class Grid {
     }
   }
 
-  printGrid(fixedWidth = 3) {
+  printGrid(cellWidth = 3) {
     let output = "";
     for (let row = 0; row < this.#rows; row++) {
       for (let col = 0; col < this.#cols; col++) {
-        let value = String(this.get({ row, col }));
-        value = value.slice(0, fixedWidth).padEnd(fixedWidth, " ");
-        output += value + " ";
+        const cell = String(this.get({ row, col }));
+        output += `${cell.slice(0, cellWidth).padEnd(cellWidth, " ")} `;
       }
       output += "\n";
     }
