@@ -92,6 +92,7 @@ export default class Grid {
     return this.getCell(row + 1, col);
   }
 
+  // TODO: This list of neighbors should not return the cell itself
   neighbours({ row, col }) {
     const listOfNeighbours = [];
 
@@ -108,6 +109,7 @@ export default class Grid {
     return listOfNeighbours;
   }
 
+  // TODO: Does this return a 1D list or 2D list?
   neighbourValues({ row, col }) {
     const listOfNeighbours = this.neighbours({ row, col });
     const values = listOfNeighbours.map((neighbour) => this.get(neighbour));
