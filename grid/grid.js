@@ -62,6 +62,12 @@ export default class Grid {
     return this.#array[index];
   }
 
+  getCell(row, col) {
+    const value = this.get({ row, col });
+    if (value === undefined) return undefined;
+    return { row, col, value };
+  }
+
   set({ row, col }, value) {
     const index = this.indexFor({ row, col });
     this.#array[index] = value;
@@ -78,33 +84,26 @@ export default class Grid {
   }
 
   north({ row, col }) {
-    const prevRow = row - 1;
-    console.log(prevRow);
-    const value = this.get({ prevRow, col });
-    console.log(value);
-    if (value === undefined) return undefined;
-    return { row: prevRow, col: col, value: value };
+    return this.getCell(row - 1, col);
   }
 
   south({ row, col }) {
-    const value = this.get({ row: row + 1, col });
-    return value;
+    return this.getCell(row + 1, col);
   }
 
   west({ row, col }) {
-    const value = this.get({ row: row, col: col - 1 });
-    return value;
+    return this.getCell(row, col - 1);
   }
 
   east({ row, col }) {
-    const value = this.get({ row: row, col: col + 1 });
-    return value;
+    return this.getCell(row, col + 1);
   }
 
   nextInRow({ row, col }) {
-    nextRow = row + 1;
-    value = get({ nextRow, col });
+    return this.getCell(row, col + 1);
+  }
 
-    return { row: nextRow, col: col, value };
+  nextInCol({ row, col }) {
+    return this.getCell(row + 1, col);
   }
 }

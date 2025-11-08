@@ -1,9 +1,10 @@
 import Grid from "./grid.js";
 
-console.log("Opret et grid");
+console.log("Opret et tomt grid");
 const myGrid = new Grid(5, 3);
 myGrid.printGrid();
 
+console.log("Put data i griddet");
 myGrid.set({ row: 0, col: 0 }, "A");
 myGrid.set({ row: 0, col: 1 }, "B");
 myGrid.set({ row: 0, col: 2 }, "C");
@@ -21,4 +22,4 @@ myGrid.set({ row: 4, col: 1 }, "N");
 myGrid.set({ row: 4, col: 2 }, "O");
 myGrid.printGrid();
 
-console.log(myGrid.indexFor({row: 2, col: 1}));
+console.log(myGrid.north({ row: 2, col: 1 }));
