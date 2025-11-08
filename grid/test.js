@@ -26,17 +26,38 @@ describe("Grid", function () {
   });
 
   describe("Getting data", function () {
-    it("Testing getting data from {row, col}", function () {
-      const data = grid.get({ row: 2, col: 1 });
-      assert.equal(data, "H");
+    it("Testing get({ row, col })", function () {
+      assert.equal(grid.get({ row: 0, col: 0 }), "A");
+      assert.equal(grid.get({ row: 2, col: 1 }), "H");
+      assert.equal(grid.get({ row: 4, col: 2 }), "O");
+      assert.equal(grid.get({ row: -1, col: 0 }), undefined);
+      assert.equal(grid.get({ row: rows, col: 0 }), undefined);
+      assert.equal(grid.get({ row: 0, col: -1 }), undefined);
+      assert.equal(grid.get({ row: 0, col: cols }), undefined);
     });
-    it("Testing indexFor", function () {
+    it("Testing indexFor({ row, col })", function () {
       assert.equal(grid.indexFor({ row: 2, col: 1 }), 7);
       assert.equal(grid.indexFor({ row: 4, col: 2 }), 14);
     });
     it("Testing rowColFor( index )", function () {
       assert.deepStrictEqual(grid.rowColFor(7), { row: 2, col: 1 });
       assert.deepStrictEqual(grid.rowColFor(14), { row: 4, col: 2 });
+    });
+    it("Testing north({ row, col })", function () {
+      assert.equal(grid.north({ row: 2, col: 1 }), "E");
+      assert.equal(grid.north({ row: 0, col: 1 }), undefined);
+    });
+    it("Testing south({ row, col })", function () {
+      assert.equal(grid.south({ row: 2, col: 1 }), "K");
+      assert.equal(grid.south({ row: 4, col: 1 }), undefined);
+    });
+    it("Testing west({ row, col })", function () {
+      assert.equal(grid.west({ row: 2, col: 1 }), "G");
+      assert.equal(grid.west({ row: 2, col: 0 }), undefined);
+    });
+    it("Testing east({ row, col })", function () {
+      assert.equal(grid.east({ row: 2, col: 1 }), "I");
+      assert.equal(grid.east({ row: 2, col: 2 }), undefined);
     });
   });
 
