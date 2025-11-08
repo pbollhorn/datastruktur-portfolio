@@ -41,24 +41,31 @@ export default class Grid {
     return { row, col };
   }
 
-  get({ row, col }) {
+  isOutOfBounds({ row, col }) {
     if (row < 0 || row >= this.#rows || col < 0 || col >= this.#cols) {
-      return undefined;
+      return true;
     }
+    return false;
+  }
+
+  set({ row, col }, value) {
+    if (this.isOutOfBounds({ row, col })) return;
+    const index = this.indexFor({ row, col });
+    this.#array[index] = value;
+  }
+
+  get({ row, col }) {
+    if (this.isOutOfBounds({ row, col })) return undefined;
     const index = this.indexFor({ row, col });
     const value = this.#array[index];
     return value;
   }
 
   getCell(row, col) {
-    const value = this.get({ row, col });
-    if (value === undefined) return undefined;
-    return { row, col, value };
-  }
-
-  set({ row, col }, value) {
+    if (this.isOutOfBounds({ row, col })) return undefined;
     const index = this.indexFor({ row, col });
-    this.#array[index] = value;
+    const value = this.#array[index];
+    return { row, col, value };
   }
 
   north({ row, col }) {
