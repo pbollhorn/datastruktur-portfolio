@@ -6,3 +6,6 @@ myGrid.printArray();
 console.log();
 console.log(myGrid.get({ row: 2, col: 1 }));
 myGrid.printGrid(3);
+
+
+myGrid.set({row: 1, col: 2}, 3);

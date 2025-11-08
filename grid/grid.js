@@ -39,4 +39,9 @@ export default class Grid {
     const index = row * this.#cols + col;
     return this.#array[index];
   }
+
+  set({ row, col }, value) {
+    const index = row * this.#cols + col;
+    this.#array[index] = value;
+  }
 }
