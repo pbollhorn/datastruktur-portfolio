@@ -122,4 +122,10 @@ export default class Grid {
     }
     return listOfNeighbours;
   }
+
+  neighbourValues({ row, col }) {
+    const listOfNeighbours = this.neighbours({ row, col });
+    const values = listOfNeighbours.map((neighbour) => this.get(neighbour));
+    return values;
+  }
 }

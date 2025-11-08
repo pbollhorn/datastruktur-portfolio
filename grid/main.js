@@ -23,3 +23,4 @@ myGrid.set({ row: 4, col: 2 }, "O");
 myGrid.printGrid();
 
 console.log(myGrid.neighbours({ row: 2, col: 1 }));
+console.log(myGrid.neighbourValues({ row: 2, col: 1 }));
