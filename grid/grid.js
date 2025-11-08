@@ -75,4 +75,16 @@ export default class Grid {
     const value = this.get({ row: row - 1, col });
     return value;
   }
+  south({ row, col }) {
+    const value = this.get({ row: row + 1, col });
+    return value;
+  }
+  west({ row, col }) {
+    const value = this.get({ row: row, col: col - 1 });
+    return value;
+  }
+  east({ row, col }) {
+    const value = this.get({ row: row, col: col + 1 });
+    return value;
+  }
 }
