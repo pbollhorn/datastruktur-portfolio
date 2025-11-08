@@ -26,6 +26,15 @@ describe("Grid", function () {
   });
 
   describe("Getting data", function () {
+    it("Testing rows()", function () {
+      assert.equal(grid.rows(), 5);
+    });
+    it("Testing cols()", function () {
+      assert.equal(grid.cols(), 3);
+    });
+    it("Testing size()", function () {
+      assert.equal(grid.size(), 15);
+    });
     it("Testing get({ row, col })", function () {
       assert.equal(grid.get({ row: 0, col: 0 }), "A");
       assert.equal(grid.get({ row: 2, col: 1 }), "H");
@@ -44,7 +53,11 @@ describe("Grid", function () {
       assert.deepStrictEqual(grid.rowColFor(14), { row: 4, col: 2 });
     });
     it("Testing north({ row, col })", function () {
-      assert.equal(grid.north({ row: 2, col: 1 }), "E");
+      assert.deepStrictEqual(grid.north({ row: 2, col: 1 }), {
+        row: 1,
+        col: 1,
+        value: "E",
+      });
       assert.equal(grid.north({ row: 0, col: 1 }), undefined);
     });
     it("Testing south({ row, col })", function () {
