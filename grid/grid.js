@@ -31,25 +31,14 @@ export default class Grid {
     return this.#array.length;
   }
 
-  printArray() {
-    for (let i = 0; i < this.#array.length; i++) {
-      console.log(this.#array[i]);
-    }
+  indexFor({ row, col }) {
+    return row * this.#cols + col;
   }
 
-  printGrid(cellWidth = 3) {
-    let output = "";
-    for (let row = 0; row < this.#rows; row++) {
-      for (let col = 0; col < this.#cols; col++) {
-        const cell = String(this.get({ row, col }));
-        const cellWithFixedWidth = cell
-          .slice(0, cellWidth)
-          .padEnd(cellWidth, " ");
-        output += `${cellWithFixedWidth} `;
-      }
-      output += "\n";
-    }
-    console.log(output);
+  rowColFor(index) {
+    const row = Math.floor(index / this.#cols);
+    const col = index % this.#cols;
+    return { row, col };
   }
 
   get({ row, col }) {
@@ -57,7 +46,8 @@ export default class Grid {
       return undefined;
     }
     const index = this.indexFor({ row, col });
-    return this.#array[index];
+    const value = this.#array[index];
+    return value;
   }
 
   getCell(row, col) {
@@ -69,16 +59,6 @@ export default class Grid {
   set({ row, col }, value) {
     const index = this.indexFor({ row, col });
     this.#array[index] = value;
-  }
-
-  indexFor({ row, col }) {
-    return row * this.#cols + col;
-  }
-
-  rowColFor(index) {
-    const row = Math.floor(index / this.#cols);
-    const col = index % this.#cols;
-    return { row, col };
   }
 
   north({ row, col }) {
@@ -125,5 +105,26 @@ export default class Grid {
     const listOfNeighbours = this.neighbours({ row, col });
     const values = listOfNeighbours.map((neighbour) => this.get(neighbour));
     return values;
+  }
+
+  printArray() {
+    for (let i = 0; i < this.#array.length; i++) {
+      console.log(this.#array[i]);
+    }
+  }
+
+  printGrid(cellWidth = 3) {
+    let output = "";
+    for (let row = 0; row < this.#rows; row++) {
+      for (let col = 0; col < this.#cols; col++) {
+        const cell = String(this.get({ row, col }));
+        const cellWithFixedWidth = cell
+          .slice(0, cellWidth)
+          .padEnd(cellWidth, " ");
+        output += `${cellWithFixedWidth} `;
+      }
+      output += "\n";
+    }
+    console.log(output);
   }
 }
