@@ -10,9 +10,7 @@ export default class Grid {
     this.#array = [];
     this.#rows = rows;
     this.#cols = cols;
-    for (let i = 0; i < rows * cols; i++) {
-      this.#array[i] = null;
-    }
+    this.fill(null);
   }
 
   fill(value) {
