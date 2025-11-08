@@ -36,12 +36,22 @@ export default class Grid {
   }
 
   get({ row, col }) {
-    const index = row * this.#cols + col;
+    const index = this.indexFor({ row, col });
     return this.#array[index];
   }
 
   set({ row, col }, value) {
-    const index = row * this.#cols + col;
+    const index = this.indexFor({ row, col });
     this.#array[index] = value;
+  }
+
+  indexFor({ row, col }) {
+    return row * this.#cols + col;
+  }
+
+  rowColFor(index) {
+    const row = Math.floor(index / this.#cols);
+    const col = index % this.#cols;
+    return { row, col };
   }
 }

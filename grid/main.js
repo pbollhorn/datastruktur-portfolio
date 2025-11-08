@@ -9,3 +9,7 @@ myGrid.printGrid(3);
 
 
 myGrid.set({row: 1, col: 2}, 3);
+
+
+
+console.log(myGrid.rowColFor(14));

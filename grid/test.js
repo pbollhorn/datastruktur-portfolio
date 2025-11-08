@@ -4,8 +4,8 @@ import Grid from "./grid.js";
 describe("Grid", function () {
   const rows = 5;
   const cols = 3;
-
   let grid = new Grid(rows, cols);
+
   this.beforeEach(function () {
     grid = new Grid(rows, cols);
     grid.set({ row: 0, col: 0 }, "A");
@@ -24,48 +24,64 @@ describe("Grid", function () {
     grid.set({ row: 4, col: 1 }, "N");
     grid.set({ row: 4, col: 2 }, "O");
   });
-  describe("Basic details", function () {
-    it("should have a head that points to null", function () {
-      assert.equal(list.head, null);
-    });
-    it("should have a printList method", function () {
-      assert.equal(typeof list.printList, "function");
-    });
-    it("should have a size() method that returns 0 when the list is empty", function () {
-      assert.equal(list.size(), 0);
-    });
-    it("should have a size() method that returns the number of nodes", function () {
-      const nodes = {
-        data: "A",
-        next: {
-          data: "B",
-          next: {
-            data: "C",
-            next: null,
-          },
-        },
-      };
-      list.head = nodes;
 
-      assert.equal(list.size(), 3);
+  describe("Getting data", function () {
+    it("Testing getting data from {row, col}", function () {
+      const data = grid.get({ row: 2, col: 1 });
+      assert.equal(data, "H");
     });
-    it("should have a clear() method that makes the list empty", function () {
-      const nodes = {
-        data: "A",
-        next: {
-          data: "B",
-          next: {
-            data: "C",
-            next: null,
-          },
-        },
-      };
-      list.head = nodes;
-      assert.equal(list.size(), 3);
-      list.clear();
-      assert.equal(list.size(), 0);
+    it("Testing indexFor", function () {
+      assert.equal(grid.indexFor({ row: 2, col: 1 }), 7);
+      assert.equal(grid.indexFor({ row: 4, col: 2 }), 14);
+    });
+    it("Testing rowColFor( index )", function () {
+      assert.deepStrictEqual(grid.rowColFor(7), { row: 2, col: 1 });
+      assert.deepStrictEqual(grid.rowColFor(14), { row: 4, col: 2 });
     });
   });
+
+  //   describe("Basic details", function () {
+  //     it("should have a head that points to null", function () {
+  //       assert.equal(list.head, null);
+  //     });
+  //     it("should have a printList method", function () {
+  //       assert.equal(typeof list.printList, "function");
+  //     });
+  //     it("should have a size() method that returns 0 when the list is empty", function () {
+  //       assert.equal(list.size(), 0);
+  //     });
+  //     it("should have a size() method that returns the number of nodes", function () {
+  //       const nodes = {
+  //         data: "A",
+  //         next: {
+  //           data: "B",
+  //           next: {
+  //             data: "C",
+  //             next: null,
+  //           },
+  //         },
+  //       };
+  //       list.head = nodes;
+
+  //       assert.equal(list.size(), 3);
+  //     });
+  //     it("should have a clear() method that makes the list empty", function () {
+  //       const nodes = {
+  //         data: "A",
+  //         next: {
+  //           data: "B",
+  //           next: {
+  //             data: "C",
+  //             next: null,
+  //           },
+  //         },
+  //       };
+  //       list.head = nodes;
+  //       assert.equal(list.size(), 3);
+  //       list.clear();
+  //       assert.equal(list.size(), 0);
+  //     });
+  //   });
   //   describe("Adding a single data element", function () {
   //     const data = "A";
   //     it("should have an add() method", function () {
