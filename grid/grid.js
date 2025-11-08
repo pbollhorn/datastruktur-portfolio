@@ -106,4 +106,20 @@ export default class Grid {
   nextInCol({ row, col }) {
     return this.getCell(row + 1, col);
   }
+
+  neighbours({ row, col }) {
+    const listOfNeighbours = [];
+
+    const minRow = Math.max(row - 1, 0);
+    const maxRow = Math.min(row + 1, this.#rows - 1);
+    const minCol = Math.max(col - 1, 0);
+    const maxCol = Math.min(col + 1, this.#cols - 1);
+
+    for (let i = minRow; i <= maxRow; i++) {
+      for (let j = minCol; j <= maxCol; j++) {
+        listOfNeighbours.push({ row: i, col: j });
+      }
+    }
+    return listOfNeighbours;
+  }
 }
