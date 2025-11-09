@@ -107,10 +107,10 @@ export default class Grid {
         }
       }
     }
+
     return listOfNeighbours;
   }
 
-  // TODO: Does this return a 1D list or 2D list?
   neighbourValues({ row, col }) {
     const listOfNeighbours = this.neighbours({ row, col });
     const values = listOfNeighbours.map((neighbour) => this.get(neighbour));
