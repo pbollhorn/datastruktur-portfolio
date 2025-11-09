@@ -92,7 +92,6 @@ export default class Grid {
     return this.getCell(row + 1, col);
   }
 
-  // TODO: This list of neighbors should not return the cell itself
   neighbours({ row, col }) {
     const listOfNeighbours = [];
 
@@ -103,7 +102,9 @@ export default class Grid {
 
     for (let i = minRow; i <= maxRow; i++) {
       for (let j = minCol; j <= maxCol; j++) {
-        listOfNeighbours.push({ row: i, col: j });
+        if (i !== row || j !== col) {
+          listOfNeighbours.push({ row: i, col: j });
+        }
       }
     }
     return listOfNeighbours;
