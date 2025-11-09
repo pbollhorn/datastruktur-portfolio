@@ -6,7 +6,7 @@ This repo has been deployed to GitHub pages: https://pbollhorn.github.io/datastr
 
 This way the JavaScript files can be imported in my other repos.
 
-E.g. **model.js** in **game-of-life** repo imports **grid.js** like this:
+E.g. **grid.js** is imported in **model.js** in **game-of-life** repo like this:
 
 ```javascript
 import Grid from "https://pbollhorn.github.io/datastruktur-portfolio/grid/grid.js";
