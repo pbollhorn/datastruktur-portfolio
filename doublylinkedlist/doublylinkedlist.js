@@ -1,10 +1,13 @@
+// Min implementation af DoublyLinkedList
+// Den består alle 70 tests
+// Men kunne godt trænge til en smule cleanup
 export default class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
   }
 
-  // Modern iterator definition (2025 style) which yields the nodes
+  // Iterator that yields each node in the list
   *[Symbol.iterator]() {
     let node = this.head;
     while (node != null) {
