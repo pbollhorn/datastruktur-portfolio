@@ -22,8 +22,8 @@ myGrid.set({ row: 4, col: 1 }, "N");
 myGrid.set({ row: 4, col: 2 }, "O");
 myGrid.printGrid();
 
-console.log("Naboer for { row: 2, col: 1 }");
-console.log(myGrid.neighbours({ row: 2, col: 1 }));
+console.log("Naboer for { row: 0, col: 1 }:");
+console.log(myGrid.neighbours({ row: 0, col: 1 }));
 
-console.log("\nVærdier i disse naboer { row: 2, col: 1 }");
-console.log(myGrid.neighbourValues({ row: 2, col: 1 }));
+console.log("\nVærdier i disse naboer:");
+console.log(myGrid.neighbourValues({ row: 0, col: 1 }));
