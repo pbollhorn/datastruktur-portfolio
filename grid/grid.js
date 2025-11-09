@@ -3,14 +3,14 @@ export default class Grid {
   #rows; // Number of rows in the grid
   #cols; // Number of columns in the grid
 
-  constructor(rows, cols) {
+  constructor(rows, cols, fillValue = null) {
     if (rows < 1 || cols < 1) {
       throw new Error("rows and cols must both be >= 1");
     }
     this.#array = [];
     this.#rows = rows;
     this.#cols = cols;
-    this.fill(null);
+    this.fill(fillValue);
   }
 
   fill(value) {
