@@ -10,6 +10,7 @@ export default class Queue {
   clear() {
     this.#head = null;
     this.#tail = null;
+    this.#size = 0;
   }
 
   // Iterator that yields each data element in the queue
