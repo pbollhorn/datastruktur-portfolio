@@ -18,21 +18,14 @@ for(const data of myQueue){
     console.log(data);
 }
 
+console.log("\nTesting peek:");
+console.log(myQueue.peek());
 
+console.log("\nTesting dequeue:");
+console.log(myQueue.dequeue());
 
-// console.log("Første og sidste værdi i listen")
-// console.log(myList.getFirst());
-// console.log(myList.getLast());
+console.log("\nTesting dequeue:");
+myQueue.printQueue();
 
-// console.log("\nTilføj 6 elementer")
-// myList.add("Hej");
-// myList.add("med");
-// myList.add("dig.");
-// myList.add("Jeg");
-// myList.add("hedder");
-// myList.add("Kaj.");
-// myList.printList();
-
-// console.log("Første og sidste værdi i listen")
-// console.log(myList.getFirst());
-// console.log(myList.getLast());
+console.log("\nGetting element 2:");
+console.log(myQueue.get(2));
