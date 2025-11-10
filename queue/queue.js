@@ -45,10 +45,10 @@ export default class Queue {
   }
 
   dequeue() {
-    this.#size--;
     const firstNode = this.#head;
     if (firstNode === null) return undefined;
     this.#head = firstNode.next;
+    this.#size--;
     return firstNode.data;
   }
 

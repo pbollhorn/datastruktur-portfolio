@@ -20,13 +20,34 @@ describe("Queue", function () {
     queue.enqueue("E");
   });
 
-  describe("Testing some of the functionality of Queue class", function () {
+  describe("Testing Queue class", function () {
     it("Testing size()", function () {
       assert.equal(queue.size(), 5);
+    });
+    it("Testing peek()", function () {
+      assert.equal(queue.peek(), "A");
     });
     it("Testing clear()", function () {
       queue.clear();
       assert.equal(queue.size(), 0);
+      assert.equal(queue.peek(), undefined);
+    });
+    it("Testing get(index)", function () {
+      assert.equal(queue.get(-1), undefined);
+      assert.equal(queue.get(0), "A");
+      assert.equal(queue.get(4), "E");
+      assert.equal(queue.get(5), undefined);
+    });
+    it("Testing dequeue()", function () {
+      assert.equal(queue.dequeue(), "A");
+      assert.equal(queue.size(), "4");
+      queue.dequeue();
+      queue.dequeue();
+      queue.dequeue();
+      assert.equal(queue.dequeue(), "E");
+      assert.equal(queue.size(), "0");
+      assert.equal(queue.dequeue(), undefined);
+      assert.equal(queue.size(), "0");
     });
     // it("Testing size()", function () {
     //   assert.equal(grid.size(), 15);
