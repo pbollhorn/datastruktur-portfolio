@@ -13,6 +13,15 @@ export default class Queue {
     this.#size = 0;
   }
 
+  // Iterator that yields each data element in the queue
+  *[Symbol.iterator]() {
+    let node = this.#head;
+    while (node !== null) {
+      yield node.data;
+      node = node.next;
+    }
+  }
+
   size() {
     return this.#size;
   }
@@ -41,16 +50,14 @@ export default class Queue {
     return firstNode.data;
   }
 
-  //   printList() {
-  //     let i = 0;
-  //     let node = this.head;
-  //     while (node != null) {
-  //       console.log(`Node ${i}: ${node.data}`);
-  //       i++;
-  //       node = this.getNextNode(node);
-  //     }
-  //     console.log(`size=${i}\n`);
-  //   }
+  printQueue() {
+    let i = 0;
+    for (const node of this) {
+      console.log(`Position ${i}: ${node.data}`);
+      i++;
+    }
+    console.log(`size=${i}\n`);
+  }
 
   //   getFirstNode() {
   //     return this.head;
