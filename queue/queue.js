@@ -50,8 +50,8 @@ export default class Queue {
 
   printQueue() {
     let i = 0;
-    for (const node of this) {
-      console.log(`Position ${i}: ${node.data}`);
+    for (const data of this) {
+      console.log(`Position ${i}: ${data}`);
       i++;
     }
     console.log(`size=${i}\n`);

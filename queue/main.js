@@ -13,6 +13,13 @@ myQueue.enqueue("hedder");
 myQueue.enqueue("Kaj.");
 myQueue.printQueue();
 
+// Using for...of loop
+for(const data of myQueue){
+    console.log(data);
+}
+
+
+
 // console.log("Første og sidste værdi i listen")
 // console.log(myList.getFirst());
 // console.log(myList.getLast());
