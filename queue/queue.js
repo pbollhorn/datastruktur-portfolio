@@ -1,7 +1,6 @@
 export default class Queue {
   #head;
   #tail;
-  #size;
 
   constructor() {
     this.clear();
@@ -10,7 +9,6 @@ export default class Queue {
   clear() {
     this.#head = null;
     this.#tail = null;
-    this.#size = 0;
   }
 
   // Iterator that yields each data element in the queue
@@ -22,9 +20,9 @@ export default class Queue {
     }
   }
 
-  size() {
-    return this.#size;
-  }
+//   size() {
+//     return this.#size;
+//   }
 
   peek() {
     if (this.#head === null) return undefined;
