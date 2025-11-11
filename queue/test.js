@@ -51,5 +51,13 @@ describe("Queue", function () {
       assert.strictEqual(queue.dequeue(), undefined);
       assert.strictEqual(queue.size(), 0);
     });
+    it("Testing enqueue(data)", function () {
+      queue.enqueue("F");
+      assert.strictEqual(queue.size(), 6);
+      assert.strictEqual(queue.get(5), "F");
+      queue.enqueue("G");
+      assert.strictEqual(queue.size(), 7);
+      assert.strictEqual(queue.get(6), "G");
+    });
   });
 });

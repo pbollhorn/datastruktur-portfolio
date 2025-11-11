@@ -31,8 +31,15 @@ export default class Queue {
     return this.#head.data;
   }
 
+  get(index) {
+    let i = 0;
+    for (const data of this) {
+      if (i === index) return data;
+      i++;
+    }
+  }
+
   enqueue(data) {
-    this.#size++;
     const newNode = { next: null, data: data };
     const lastNode = this.#tail;
     if (lastNode === null) {
@@ -42,6 +49,7 @@ export default class Queue {
       lastNode.next = newNode;
       this.#tail = newNode;
     }
+    this.#size++;
   }
 
   dequeue() {
@@ -59,13 +67,5 @@ export default class Queue {
       i++;
     }
     console.log(`size=${i}\n`);
-  }
-
-  get(index) {
-    let i = 0;
-    for (const data of this) {
-      if (i === index) return data;
-      i++;
-    }
   }
 }
