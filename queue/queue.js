@@ -31,6 +31,11 @@ export default class Queue {
     return this.#head.data;
   }
 
+  peekTail() {
+    if (this.#tail === null) return undefined;
+    return this.#tail.data;
+  }
+
   get(index) {
     let i = 0;
     for (const data of this) {

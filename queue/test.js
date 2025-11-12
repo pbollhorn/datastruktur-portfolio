@@ -29,6 +29,11 @@ describe("Queue", function () {
       queue.clear();
       assert.strictEqual(queue.peek(), undefined);
     });
+    it("Testing peekTail()", function () {
+      assert.strictEqual(queue.peekTail(), "E");
+      queue.clear();
+      assert.strictEqual(queue.peekTail(), undefined);
+    });
     it("Testing clear()", function () {
       queue.clear();
       assert.strictEqual(queue.size(), 0);
