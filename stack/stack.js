@@ -43,19 +43,6 @@ export default class Stack {
     this.#size++;
   }
 
-  // enqueue(data) {
-  //   const newNode = { next: null, data: data };
-  //   const lastNode = this.#tail;
-  //   if (lastNode === null) {
-  //     this.#head = newNode;
-  //     this.#tail = newNode;
-  //   } else {
-  //     lastNode.next = newNode;
-  //     this.#tail = newNode;
-  //   }
-  //   this.#size++;
-  // }
-
   pop() {
     const firstNode = this.#head;
     if (firstNode === null) return undefined;

@@ -10,7 +10,6 @@ describe("Queue", function () {
   // 2: C
   // 3: D
   // 4: E
-  // 5: F
   this.beforeEach(function () {
     queue = new Queue();
     queue.enqueue("A");
