@@ -38,13 +38,8 @@ export default class Stack {
   }
 
   push(data) {
-    if (this.#head === null) {
-      const newNode = { next: null, data: data };
-      this.#head = newNode;
-    } else {
-      const newNode = { next: this.#head.next, data: data };
-      this.#head = newNode;
-    }
+    const newNode = { next: this.#head, data: data };
+    this.#head = newNode;
     this.#size++;
   }
 
