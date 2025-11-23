@@ -11,3 +11,5 @@ E.g. **grid.js** is imported in **model.js** in **game-of-life** repo like this:
 ```javascript
 import Grid from "https://pbollhorn.github.io/datastruktur-portfolio/grid/grid.js";
 ```
+
+NB: This way of importing works in the browser, but not in Node.js.
