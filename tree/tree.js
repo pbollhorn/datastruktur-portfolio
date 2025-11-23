@@ -13,12 +13,15 @@ export default class Tree {
   addValue(value) {}
 
   // leder efter den givne value i træet, og returnerer den (første) Node der har den
-  findValue(value) {}
+  // alias for bfs method
+  findValue(value) {
+    return bfs(value);
+  }
 
   removeValue(value) {}
 
-  // Looks for value using BFS and returns first node that has that value
-  breadthFirstSearch(value) {
+  // Looks for value using Breadth First Search and returns first node that has that value
+  bfs(value) {
     const queue = new Queue();
     queue.enqueue(this.root);
 
@@ -37,7 +40,8 @@ export default class Tree {
     return null;
   }
 
-  depthFirstSearch(value) {
+  // Looks for value using Depth First Search and returns first node that has that value
+  dfs(value) {
     const stack = new Stack();
   }
 }
