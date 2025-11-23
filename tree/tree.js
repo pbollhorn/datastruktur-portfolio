@@ -6,6 +6,21 @@ export default class Tree {
     this.root = null;
   }
 
+  // Iterator that yields each node in the list using BFS
+  *[Symbol.iterator]() {
+    const queue = new Queue();
+    queue.enqueue(this.root);
+
+    while (queue.size() > 0) {
+      const currentNode = queue.dequeue();
+      yield currentNode;
+
+      for (const node of currentNode.childNodes) {
+        queue.enqueue(node);
+      }
+    }
+  }
+
   // udskriver hele træet i consollen.
   dump() {}
 
@@ -22,17 +37,9 @@ export default class Tree {
 
   // Looks for value using Breadth First Search and returns first node that has that value
   bfs(value) {
-    const queue = new Queue();
-    queue.enqueue(this.root);
-
-    while (queue.size() > 0) {
-      const currentNode = queue.dequeue();
-      if (currentNode.value === value) {
-        return currentNode;
-      } else {
-        for (const node of currentNode.childNodes) {
-          queue.enqueue(node);
-        }
+    for (const node of this) {
+      if (node.value === value) {
+        return node;
       }
     }
 
