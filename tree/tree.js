@@ -1,6 +1,11 @@
-export default class Tree {
-  #root;
+import Queue from "../queue/queue.js";
+import Stack from "../stack/stack.js";
 
+
+export default class Tree {
+  constructor() {
+    this.root = null;
+  }
 
   // udskriver hele træet i consollen.
   dump() {}
@@ -12,4 +17,18 @@ export default class Tree {
   findValue(value) {}
 
   removeValue(value) {}
+
+
+
+  breadthFirstSearch(value){
+    const queue = new Queue();
+
+  }
+
+  depthFirstSearch(value){
+    const stack = new Stack();
+
+  }
+
+
 }

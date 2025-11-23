@@ -17,4 +17,19 @@ export default class Node {
     if (this.childNodes.length === 0) return false;
     else return true;
   }
+
+  appendChild(child) {
+    child.parent = this;
+    this.childNodes.push(child);
+  }
+
+  // removeChild( child ){
+  //   for(const node of this.childNodes){
+  //     if(node===child)
+
+  //   }
+  // }
+
+
+  // replaceChild( newChild, oldChild )
 }
