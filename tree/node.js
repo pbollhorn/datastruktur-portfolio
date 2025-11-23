@@ -4,4 +4,17 @@ export default class Node {
     this.parent = parent;
     this.childNodes = childNodes;
   }
+
+  firstChild() {
+    return this.childNodes[0]; // undefined in case of no child nodes
+  }
+
+  lastChild() {
+    return this.childNodes[this.childNodes.length - 1]; // undefined in case of no child nodes
+  }
+
+  hasChildNodes() {
+    if (this.childNodes.length === 0) return false;
+    else return true;
+  }
 }
