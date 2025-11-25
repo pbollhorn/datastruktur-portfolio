@@ -32,10 +32,10 @@ describe("Testing Node class", function () {
       assert.strictEqual(nodeA.hasChildNodes(), false);
     });
     it("Testing firstChild() method", function () {
-      assert.strictEqual(nodeA.firstChild(), undefined);
+      assert.strictEqual(nodeA.firstChild(), null);
     });
     it("Testing lastChild() method", function () {
-      assert.strictEqual(nodeA.lastChild(), undefined);
+      assert.strictEqual(nodeA.lastChild(), null);
     });
   });
 

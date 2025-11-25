@@ -7,11 +7,19 @@ export default class Node {
   }
 
   firstChild() {
-    return this.childNodes[0]; // undefined in case of no child nodes
+    if (this.childNodes.length > 0) {
+      return this.childNodes[0];
+    } else {
+      return null;
+    }
   }
 
   lastChild() {
-    return this.childNodes[this.childNodes.length - 1]; // undefined in case of no child nodes
+    if (this.childNodes.length > 0) {
+      return this.childNodes[this.childNodes.length - 1];
+    } else {
+      return null;
+    }
   }
 
   hasChildNodes() {
