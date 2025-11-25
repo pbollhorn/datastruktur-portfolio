@@ -49,6 +49,13 @@ describe("Testing Node class", function () {
     it("Testing lastChild() method", function () {
       assert.strictEqual(nodeB.lastChild(), nodeC);
     });
+    it("Testing removeChild(child) method", function () {
+      nodeC = nodeB.removeChild(nodeC);
+      assert.strictEqual(nodeB.hasChildNodes(), false);
+      assert.strictEqual(nodeB.firstChild(), null);
+      assert.strictEqual(nodeB.lastChild(), null);
+      assert.strictEqual(nodeC.parent, null);
+    });
   });
 
   describe("Testing node with two children", function () {
