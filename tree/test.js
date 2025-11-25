@@ -5,6 +5,9 @@ describe("Testing Node class", function () {
   let nodeA;
   let nodeB;
   let nodeC;
+  let nodeD;
+  let nodeE;
+  let nodeF;
 
   // Use these nodes for each test:
   this.beforeEach(function () {
@@ -24,7 +27,7 @@ describe("Testing Node class", function () {
     nodeD.appendChild(nodeF);
   });
 
-  describe("Testing on node with no children", function () {
+  describe("Testing node with no children", function () {
     it("Testing hasChildNodes() method", function () {
       assert.strictEqual(nodeA.hasChildNodes(), false);
     });
@@ -36,18 +39,15 @@ describe("Testing Node class", function () {
     });
   });
 
-  describe("Testing on node with one child", function () {
+  describe("Testing node with one child", function () {
     it("Testing hasChildNodes() method", function () {
-      nodeA.appendChild(nodeB);
-      assert.strictEqual(nodeA.hasChildNodes(), true);
+      assert.strictEqual(nodeB.hasChildNodes(), true);
     });
     it("Testing firstChild() method", function () {
-      nodeA.appendChild(nodeB);
-      assert.strictEqual(nodeA.firstChild(), nodeB);
+      assert.strictEqual(nodeB.firstChild(), nodeC);
     });
     it("Testing lastChild() method", function () {
-      nodeA.appendChild(nodeB);
-      assert.strictEqual(nodeA.lastChild(), nodeB);
+      assert.strictEqual(nodeB.lastChild(), nodeC);
     });
   });
 });
