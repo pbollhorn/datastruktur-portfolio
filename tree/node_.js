@@ -1,4 +1,5 @@
-// This file is named "node_.js", because naming it "node.js" causes problem with "npx mocha" command
+// This file is named "node_.js",
+// because naming it "node.js" causes problem with "npx mocha" command
 export default class Node {
   constructor(value, parent = null, childNodes = []) {
     this.value = value;
@@ -32,12 +33,17 @@ export default class Node {
     this.childNodes.push(child);
   }
 
-  // removeChild( child ){
-  //   for(const node of this.childNodes){
-  //     if(node===child)
-
-  //   }
-  // }
+  // returns the removed child, or null in case it was not a child
+  removeChild(child) {
+    for (let i = 0; i < this.childNodes.length; i++) {
+      if (child === this.childNodes[i]) {
+        this.childNodes.splice(i, 1);
+        child.parent = null;
+        return child;
+      }
+    }
+    return null;
+  }
 
   // replaceChild( newChild, oldChild )
 }
