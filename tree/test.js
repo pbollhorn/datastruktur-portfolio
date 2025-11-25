@@ -8,9 +8,20 @@ describe("Testing Node class", function () {
 
   // Use these nodes for each test:
   this.beforeEach(function () {
+    // nodeA has no children
     nodeA = new Node("A");
-    nodeB = new Node("A");
-    nodeC = new Node("A");
+
+    // nodeB has one child: nodeC
+    nodeB = new Node("B");
+    nodeC = new Node("C");
+    nodeB.appendChild(nodeC);
+
+    // nodeD has two children: nodeE and nodeF
+    nodeD = new Node("D");
+    nodeE = new Node("E");
+    nodeF = new Node("F");
+    nodeD.appendChild(nodeE);
+    nodeD.appendChild(nodeF);
   });
 
   describe("Testing on node with no children", function () {
