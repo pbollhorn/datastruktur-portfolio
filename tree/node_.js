@@ -1,3 +1,4 @@
+// This file is named "node_.js", because naming it "node.js" causes problem with "npx mocha" command
 export default class Node {
   constructor(value, parent = null, childNodes = []) {
     this.value = value;
@@ -29,7 +30,6 @@ export default class Node {
 
   //   }
   // }
-
 
   // replaceChild( newChild, oldChild )
 }
