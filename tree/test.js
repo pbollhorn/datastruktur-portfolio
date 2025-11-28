@@ -37,6 +37,12 @@ describe("Testing Node class", function () {
     it("Testing lastChild() method", function () {
       assert.strictEqual(nodeA.lastChild(), null);
     });
+    it('Testing removeChild( child ) method - removing a "child" that is not actually a child', function () {
+      assert.strictEqual(nodeA.removeChild(nodeB), null);
+    });
+    it('Testing replaceChild( newChild , oldChild ) method - replacing an "oldChild" that is not actually a child', function () {
+      assert.strictEqual(nodeA.replaceChild(nodeC, nodeB), null);
+    });
   });
 
   describe("Testing node with one child", function () {
