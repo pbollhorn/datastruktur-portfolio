@@ -55,12 +55,20 @@ describe("Testing Node class", function () {
     it("Testing lastChild() method", function () {
       assert.strictEqual(nodeB.lastChild(), nodeC);
     });
-    it("Testing removeChild(child) method", function () {
+    it("Testing removeChild( child ) method", function () {
       nodeC = nodeB.removeChild(nodeC);
       assert.strictEqual(nodeB.hasChildNodes(), false);
       assert.strictEqual(nodeB.firstChild(), null);
       assert.strictEqual(nodeB.lastChild(), null);
       assert.strictEqual(nodeC.parent, null);
+    });
+    it("Testing replaceChild( newChild , oldChild ) method", function () {
+      assert.strictEqual(nodeB.replaceChild(nodeA, nodeC), nodeC);
+      assert.strictEqual(nodeC.parent, null);
+      assert.strictEqual(nodeB.hasChildNodes(), true);
+      assert.strictEqual(nodeB.firstChild(), nodeA);
+      assert.strictEqual(nodeB.lastChild(), nodeA);
+      assert.strictEqual(nodeA.parent, nodeB);
     });
   });
 
@@ -73,6 +81,12 @@ describe("Testing Node class", function () {
     });
     it("Testing lastChild() method", function () {
       assert.strictEqual(nodeD.lastChild(), nodeF);
+    });
+    it("Testing replaceChild( newChild , oldChild ) method - Using the method to swap position of two children", function () {
+      assert.strictEqual(nodeD.replaceChild(nodeE, nodeF), nodeF);
+      assert.strictEqual(nodeD.replaceChild(nodeF, nodeE), nodeE);
+      assert.strictEqual(nodeD.firstChild(), nodeF);
+      assert.strictEqual(nodeD.lastChild(), nodeE);
     });
   });
 });
