@@ -33,7 +33,7 @@ export default class Node {
     this.childNodes.push(child);
   }
 
-  // returns the removed child, or null in case it was not a child
+  // returns the removed child, or null in case it was not actually a child
   removeChild(child) {
     for (let i = 0; i < this.childNodes.length; i++) {
       if (child === this.childNodes[i]) {
@@ -45,5 +45,16 @@ export default class Node {
     return null;
   }
 
-  // replaceChild( newChild, oldChild )
+  // returns the replaced oldChild, or null in case it was not actually a child
+  replaceChild(newChild, oldChild) {
+    for (let i = 0; i < this.childNodes.length; i++) {
+      if (oldChild === this.childNodes[i]) {
+        newChild.parent = oldChild.parent;
+        oldChild.parent = null;
+        this.childNodes[i] = newChild;
+        return oldChild;
+      }
+    }
+    return null;
+  }
 }
