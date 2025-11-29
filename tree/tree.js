@@ -6,7 +6,7 @@ export default class Tree {
     this.root = null;
   }
 
-  // Iterator that yields each node in the list using BFS
+  // Iterator that yields each node in the tree using BFS
   *[Symbol.iterator]() {
     const queue = new Queue();
     queue.enqueue(this.root);
