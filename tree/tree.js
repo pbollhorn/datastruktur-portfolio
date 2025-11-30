@@ -3,9 +3,9 @@ export default class Tree {
     this.root = node;
   }
 
-  // Iterator that yields each node in the tree using BFS
+  // Iterator that yields each node in the tree using BFS (Breadth First Search)
   *[Symbol.iterator]() {
-    const queue = []; // using JavaScript array as a queue, because my own Queue class has a bug
+    const queue = []; // using JavaScript array as a queue
     queue.push(this.root);
 
     while (queue.length > 0) {
@@ -18,6 +18,7 @@ export default class Tree {
     }
   }
 
+  // TODO: Finish this method
   // udskriver hele træet i consollen.
   dump() {
     for (const node of this) {
@@ -26,11 +27,10 @@ export default class Tree {
     // console.log(this.root);
   }
 
-  // opretter en ny node med den givne value, og tilføjer den et sted i træet - du bestemmer selv hvor!
+  // TODO: This method is not implemented yet
   addValue(value) {}
 
-  // leder efter den givne value i træet, og returnerer den (første) Node der har den
-  // Looks for value using Breadth First Search and returns first node that has that value
+  // Looks for value using BFS and returns first node that has that value
   findValue(value) {
     for (const node of this) {
       if (node.value === value) {
@@ -42,5 +42,6 @@ export default class Tree {
     return null;
   }
 
+  // TODO: This method is not implemented yet
   removeValue(value) {}
 }
