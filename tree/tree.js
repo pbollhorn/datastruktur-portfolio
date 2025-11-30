@@ -10,7 +10,6 @@ export default class Tree {
 
     while (queue.length > 0) {
       const currentNode = queue.shift();
-      console.log(currentNode);
       yield currentNode;
 
       for (const node of currentNode.childNodes) {
@@ -22,7 +21,7 @@ export default class Tree {
   // udskriver hele træet i consollen.
   dump() {
     for (const node of this) {
-      console.log("i'm in the loop");
+      console.log(node.value);
     }
     // console.log(this.root);
   }
@@ -31,15 +30,8 @@ export default class Tree {
   addValue(value) {}
 
   // leder efter den givne value i træet, og returnerer den (første) Node der har den
-  // alias for bfs method
-  findValue(value) {
-    return bfs(value);
-  }
-
-  removeValue(value) {}
-
   // Looks for value using Breadth First Search and returns first node that has that value
-  bfs(value) {
+  findValue(value) {
     for (const node of this) {
       if (node.value === value) {
         return node;
@@ -50,8 +42,5 @@ export default class Tree {
     return null;
   }
 
-  // // Looks for value using Depth First Search and returns first node that has that value
-  // dfs(value) {
-  //   const stack = new Stack();
-  // }
+  removeValue(value) {}
 }
