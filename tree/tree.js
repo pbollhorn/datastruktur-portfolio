@@ -1,9 +1,9 @@
 import Queue from "../queue/queue.js";
-import Stack from "../stack/stack.js";
+// import Stack from "../stack/stack.js";
 
 export default class Tree {
-  constructor() {
-    this.root = null;
+  constructor(node) {
+    this.root = node;
   }
 
   // Iterator that yields each node in the tree using BFS
@@ -13,6 +13,7 @@ export default class Tree {
 
     while (queue.size() > 0) {
       const currentNode = queue.dequeue();
+      console.log(currentNode);
       yield currentNode;
 
       for (const node of currentNode.childNodes) {
@@ -22,7 +23,11 @@ export default class Tree {
   }
 
   // udskriver hele træet i consollen.
-  dump() {}
+  dump() {
+    for (const node of this) {
+      console.log(node);
+    }
+  }
 
   // opretter en ny node med den givne value, og tilføjer den et sted i træet - du bestemmer selv hvor!
   addValue(value) {}
@@ -47,8 +52,8 @@ export default class Tree {
     return null;
   }
 
-  // Looks for value using Depth First Search and returns first node that has that value
-  dfs(value) {
-    const stack = new Stack();
-  }
+  // // Looks for value using Depth First Search and returns first node that has that value
+  // dfs(value) {
+  //   const stack = new Stack();
+  // }
 }
