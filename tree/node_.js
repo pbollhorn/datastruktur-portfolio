@@ -1,10 +1,10 @@
 // This file is named "node_.js",
 // because naming it "node.js" causes problem with "npx mocha" command
 export default class Node {
-  constructor(value, parent = null, childNodes = []) {
+  constructor(value) {
     this.value = value;
-    this.parent = parent;
-    this.childNodes = childNodes;
+    this.parent = null;
+    this.childNodes = [];
   }
 
   firstChild() {
