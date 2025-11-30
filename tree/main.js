@@ -16,7 +16,8 @@ nodeB.appendChild(nodeD);
 console.log(tree.findValue("D"));
 console.log(tree.findValue("Value not in tree"));
 
-// tree.dump();
+console.log("\nPrint tree as a list:");
+tree.printTree();
 
 // const node1 = new Node("node1");
 

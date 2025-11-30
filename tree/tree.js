@@ -18,18 +18,6 @@ export default class Tree {
     }
   }
 
-  // TODO: Finish this method
-  // udskriver hele træet i consollen.
-  dump() {
-    for (const node of this) {
-      console.log(node.value);
-    }
-    // console.log(this.root);
-  }
-
-  // TODO: This method is not implemented yet
-  addValue(value) {}
-
   // Looks for value using BFS and returns first node that has that value
   findValue(value) {
     for (const node of this) {
@@ -41,6 +29,16 @@ export default class Tree {
     // return null in case value is not found in any node
     return null;
   }
+
+  // TODO: This method prints the tree as a list. It would be better if the tree was printed as a tree.
+  printTree() {
+    for (const node of this) {
+      console.log(node.value);
+    }
+  }
+
+  // TODO: This method is not implemented yet
+  addValue(value) {}
 
   // TODO: This method is not implemented yet
   removeValue(value) {}
