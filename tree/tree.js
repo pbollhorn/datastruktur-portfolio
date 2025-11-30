@@ -25,7 +25,7 @@ export default class Tree {
   // udskriver hele træet i consollen.
   dump() {
     for (const node of this) {
-      console.log(node);
+      console.log("i'm in the loop");
     }
   }
 

@@ -9,12 +9,9 @@ const nodeE = new Node("E");
 const nodeF = new Node("F");
 
 const tree = new Tree(nodeA);
+nodeA.appendChild(nodeB);
 
 tree.dump();
-
-
-
-
 
 // const node1 = new Node("node1");
 
