@@ -57,6 +57,7 @@ export default class Queue {
     this.#size++;
   }
 
+  // TODO: I think there is a bug here concerning this.#tail and queues with only 1 element
   dequeue() {
     const firstNode = this.#head;
     if (firstNode === null) return undefined;
