@@ -13,7 +13,10 @@ nodeA.appendChild(nodeB);
 nodeA.appendChild(nodeC);
 nodeB.appendChild(nodeD);
 
-tree.dump();
+console.log(tree.findValue("D"));
+console.log(tree.findValue("Value not in tree"));
+
+// tree.dump();
 
 // const node1 = new Node("node1");
 
