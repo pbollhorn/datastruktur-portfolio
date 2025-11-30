@@ -10,6 +10,8 @@ const nodeF = new Node("F");
 
 const tree = new Tree(nodeA);
 nodeA.appendChild(nodeB);
+nodeA.appendChild(nodeC);
+nodeB.appendChild(nodeD);
 
 tree.dump();
 

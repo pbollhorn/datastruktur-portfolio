@@ -1,6 +1,3 @@
-import Queue from "../queue/queue.js";
-// import Stack from "../stack/stack.js";
-
 export default class Tree {
   constructor(node) {
     this.root = node;
@@ -8,16 +5,16 @@ export default class Tree {
 
   // Iterator that yields each node in the tree using BFS
   *[Symbol.iterator]() {
-    const queue = new Queue();
-    queue.enqueue(this.root);
+    const queue = []; // using JavaScript array as a queue, because my own Queue class has a bug
+    queue.push(this.root);
 
-    while (queue.size() > 0) {
-      const currentNode = queue.dequeue();
+    while (queue.length > 0) {
+      const currentNode = queue.shift();
       console.log(currentNode);
       yield currentNode;
 
       for (const node of currentNode.childNodes) {
-        queue.enqueue(node);
+        queue.push(node);
       }
     }
   }
@@ -27,6 +24,7 @@ export default class Tree {
     for (const node of this) {
       console.log("i'm in the loop");
     }
+    // console.log(this.root);
   }
 
   // opretter en ny node med den givne value, og tilføjer den et sted i træet - du bestemmer selv hvor!
