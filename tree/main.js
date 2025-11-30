@@ -15,8 +15,11 @@ nodeB.appendChild(nodeD);
 nodeD.appendChild(nodeE);
 nodeD.appendChild(nodeF);
 
+console.log("\nLooking for a value that exists:");
 console.log(tree.findValue("D"));
-console.log(tree.findValue("Value not in tree"));
+
+console.log("\nLooking for a value that does not exists:");
+console.log(tree.findValue("X"));
 
 console.log("\nPrint tree as a list:");
 tree.printTree();
